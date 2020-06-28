@@ -1,0 +1,52 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.rmdnote, .rmdtip, .rmdwarn, .rmdbu,.rmdstop,.rmdslip,.rmdcliff,.rmdwarn1 {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
+}
+
+.rmdnote {
+  background-image: url("images/note.png");
+}
+
+.rmdbu {
+  background-image: url("images/logo.png");
+}
+.rmdtip {
+  background-image: url("images/tip.png");
+}
+.rmdwarn {
+  background-image: url("images/warning.png");
+}
+
+.rmdwarn1 {
+  background-image: url("images/warning1.png");
+}
+
+.rmdslip {
+  background-image: url("images/slippery.jpg");
+}
+
+.rmdstop {
+  background-image: url("images/stop.png");
+}
+
+.rmdcliff {
+  background-image: url("images/cliff.jpg");
+}
+
+

@@ -359,3 +359,18 @@ To https://github.com/dgolicher/dgolicher.github.io.git
    2d4eb68..49f0523  master -> master
 Branch master set up to track remote branch master from origin.
 ]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ git push -u origin master[4Pcommit -m "first"add .[Kcommit -m "first"push -u origin master[Kgit push -u origin master[4Pcommit -m "first"add .[K
+]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ git add .push -u origin master[4Pcommit -m "first"
+[master 146c8d9] first
+ 2 files changed, 17 insertions(+), 2 deletions(-)
+ delete mode 160000 blog
+]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ git commit -m "first"add .[Kpush -u origin master
+Counting objects: 6, done.
+Delta compression using up to 16 threads.
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 983 bytes | 0 bytes/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/dgolicher/dgolicher.github.io.git
+   49f0523..146c8d9  master -> master
+Branch master set up to track remote branch master from origin.
+]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ 

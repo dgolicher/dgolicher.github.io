@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 16 Factorial designs | Advanced Quantitative methods</title>
+  <meta name="description" content="Chapter 16 Factorial designs | Advanced Quantitative methods" />
+  <meta name="generator" content="bookdown  and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 16 Factorial designs | Advanced Quantitative methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 16 Factorial designs | Advanced Quantitative methods" />
+  
+  
+  
+
+<meta name="author" content="Duncan Golicher" />
+
+
+<meta name="date" content="2020-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="repeat-measures-designs.html">
+<link rel="next" href="generalised-linear-models-1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="libs/jszip-1.10.16/jszip.min.js"></script>
+<link href="libs/dt-ext-buttons-1.10.16/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.16/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.1.17/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.2/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<link href="libs/PopupTable-0.0.1/popup.css" rel="stylesheet" />
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.4/dygraphs.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
+<link href="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.css" rel="stylesheet" />
+<script src="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Advanced Quantitative Methods</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#the-new-statistics"><i class="fa fa-check"></i><b>1.1</b> The new statistics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#statistical-models-vs-statistical-tests"><i class="fa fa-check"></i><b>1.2</b> Statistical models vs statistical tests</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#bayesian-vs-frequentist-approaches-to-inference"><i class="fa fa-check"></i><b>1.3</b> Bayesian vs frequentist approaches to inference</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#using-p-values-with-discretion"><i class="fa fa-check"></i><b>1.4</b> Using p-values with discretion</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#common-pitfalls"><i class="fa fa-check"></i><b>1.5</b> Common pitfalls</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html"><i class="fa fa-check"></i><b>2</b> Using the RStudio server</a><ul>
+<li class="chapter" data-level="2.1" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#getting-started-with-the-rstudio-server"><i class="fa fa-check"></i><b>2.2</b> Getting started with the RStudio server</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#log-into-the-rstudio-server"><i class="fa fa-check"></i><b>2.2.1</b> Log into the RStudio server</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#rstudio-server-concepts"><i class="fa fa-check"></i><b>2.3</b> RStudio server concepts</a></li>
+<li class="chapter" data-level="2.4" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#finding-your-way-around-the-interface"><i class="fa fa-check"></i><b>2.4</b> Finding your way around the interface</a></li>
+<li class="chapter" data-level="2.5" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#using-projects-in-rstudio"><i class="fa fa-check"></i><b>2.5</b> Using projects in RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#uploading-data"><i class="fa fa-check"></i><b>2.6</b> Uploading data</a></li>
+<li class="chapter" data-level="2.7" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#working-with-markdown-documents."><i class="fa fa-check"></i><b>2.7</b> Working with markdown documents.</a></li>
+<li class="chapter" data-level="2.8" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#forming-a-markdown-document."><i class="fa fa-check"></i><b>2.8</b> Forming a markdown document.</a></li>
+<li class="chapter" data-level="2.9" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#reading-in-your-data"><i class="fa fa-check"></i><b>2.9</b> Reading in your data</a></li>
+<li class="chapter" data-level="2.10" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#adding-analysis-chunks"><i class="fa fa-check"></i><b>2.10</b> Adding analysis chunks</a></li>
+<li class="chapter" data-level="2.11" data-path="using-the-rstudio-server.html"><a href="using-the-rstudio-server.html#compiling-a-report"><i class="fa fa-check"></i><b>2.11</b> Compiling a report</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html"><i class="fa fa-check"></i><b>3</b> Reading data into R from a web site</a><ul>
+<li class="chapter" data-level="3.1" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#introduction-2"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#example.-reading-data-from-the-met-office-historical-data-site"><i class="fa fa-check"></i><b>3.2</b> Example. Reading data from the met office historical data site</a></li>
+<li class="chapter" data-level="3.3" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#reading-the-raw-file"><i class="fa fa-check"></i><b>3.3</b> Reading the raw file</a></li>
+<li class="chapter" data-level="3.4" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#reading-the-data-to-a-data-frame"><i class="fa fa-check"></i><b>3.4</b> Reading the data to a data frame</a></li>
+<li class="chapter" data-level="3.5" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#adding-names"><i class="fa fa-check"></i><b>3.5</b> Adding names</a></li>
+<li class="chapter" data-level="3.6" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#cleaning-the-columns"><i class="fa fa-check"></i><b>3.6</b> Cleaning the columns</a></li>
+<li class="chapter" data-level="3.7" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#making-a-date-column"><i class="fa fa-check"></i><b>3.7</b> Making a date column</a></li>
+<li class="chapter" data-level="3.8" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#looking-at-the-raw-data"><i class="fa fa-check"></i><b>3.8</b> Looking at the raw data</a></li>
+<li class="chapter" data-level="3.9" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#plotting-the-data"><i class="fa fa-check"></i><b>3.9</b> Plotting the data</a></li>
+<li class="chapter" data-level="3.10" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#long-to-wide-conversion"><i class="fa fa-check"></i><b>3.10</b> Long to wide conversion</a></li>
+<li class="chapter" data-level="3.11" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#disadvantages-of-the-wide-format"><i class="fa fa-check"></i><b>3.11</b> Disadvantages of the wide format</a></li>
+<li class="chapter" data-level="3.12" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#using-dplyr-to-summarise"><i class="fa fa-check"></i><b>3.12</b> Using dplyr to summarise</a></li>
+<li class="chapter" data-level="3.13" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#repeating-the-operation"><i class="fa fa-check"></i><b>3.13</b> Repeating the operation</a></li>
+<li class="chapter" data-level="3.14" data-path="reading-data-into-r-from-a-web-site.html"><a href="reading-data-into-r-from-a-web-site.html#get-lattitude-and-longitude"><i class="fa fa-check"></i><b>3.14</b> Get lattitude and Longitude</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="using-dplyr.html"><a href="using-dplyr.html"><i class="fa fa-check"></i><b>4</b> Using dplyr</a><ul>
+<li class="chapter" data-level="4.1" data-path="using-dplyr.html"><a href="using-dplyr.html#loading-the-saved-data"><i class="fa fa-check"></i><b>4.1</b> Loading the saved data</a></li>
+<li class="chapter" data-level="4.2" data-path="using-dplyr.html"><a href="using-dplyr.html#using-dplyr-1"><i class="fa fa-check"></i><b>4.2</b> Using dplyr</a></li>
+<li class="chapter" data-level="4.3" data-path="using-dplyr.html"><a href="using-dplyr.html#plotting"><i class="fa fa-check"></i><b>4.3</b> Plotting</a></li>
+<li class="chapter" data-level="4.4" data-path="using-dplyr.html"><a href="using-dplyr.html#another-example"><i class="fa fa-check"></i><b>4.4</b> Another example</a></li>
+<li class="chapter" data-level="4.5" data-path="using-dplyr.html"><a href="using-dplyr.html#the-in-filter"><i class="fa fa-check"></i><b>4.5</b> The %in% filter</a></li>
+<li class="chapter" data-level="4.6" data-path="using-dplyr.html"><a href="using-dplyr.html#aggregating-years-to-decades"><i class="fa fa-check"></i><b>4.6</b> Aggregating years to decades</a></li>
+<li class="chapter" data-level="4.7" data-path="using-dplyr.html"><a href="using-dplyr.html#using-dygraphs"><i class="fa fa-check"></i><b>4.7</b> Using dygraphs</a></li>
+<li class="chapter" data-level="4.8" data-path="using-dplyr.html"><a href="using-dplyr.html#exercise"><i class="fa fa-check"></i><b>4.8</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>5</b> R programming</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-programming.html"><a href="r-programming.html#using-base-r-to-simulate-data"><i class="fa fa-check"></i><b>5.1</b> Using base R to simulate data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-programming.html"><a href="r-programming.html#some-very-simple-r-commands"><i class="fa fa-check"></i><b>5.1.1</b> Some very simple R commands</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-programming.html"><a href="r-programming.html#data-structures"><i class="fa fa-check"></i><b>5.1.2</b> Data structures</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-programming.html"><a href="r-programming.html#generating-sequences-of-numbers-in-r"><i class="fa fa-check"></i><b>5.1.3</b> Generating sequences of numbers in R</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-programming.html"><a href="r-programming.html#logical-vectors-and-subsetting"><i class="fa fa-check"></i><b>5.1.4</b> Logical vectors and subsetting</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-programming.html"><a href="r-programming.html#simulating-from-known-distributions"><i class="fa fa-check"></i><b>5.1.5</b> Simulating from known distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-programming.html"><a href="r-programming.html#a-simple-simulated-data-set"><i class="fa fa-check"></i><b>5.2</b> A simple simulated data set</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-programming.html"><a href="r-programming.html#saving-and-loading-data-frames"><i class="fa fa-check"></i><b>5.2.1</b> Saving and loading data frames</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-programming.html"><a href="r-programming.html#histogram-of-simulated-data"><i class="fa fa-check"></i><b>5.2.2</b> Histogram of simulated data</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-programming.html"><a href="r-programming.html#boxplot-using-ggplot"><i class="fa fa-check"></i><b>5.2.3</b> Boxplot using ggplot</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-programming.html"><a href="r-programming.html#confidence-interval-plot"><i class="fa fa-check"></i><b>5.2.4</b> Confidence interval plot</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-programming.html"><a href="r-programming.html#summarising-using-dplyr"><i class="fa fa-check"></i><b>5.2.5</b> Summarising using dplyr</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-programming.html"><a href="r-programming.html#statistical-test"><i class="fa fa-check"></i><b>5.2.6</b> Statistical test</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-programming.html"><a href="r-programming.html#simulating-a-regression"><i class="fa fa-check"></i><b>5.3</b> Simulating a regression</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="r-programming.html"><a href="r-programming.html#simulating-likert-responses"><i class="fa fa-check"></i><b>5.3.1</b> Simulating Likert responses</a></li>
+<li class="chapter" data-level="5.3.2" data-path="r-programming.html"><a href="r-programming.html#simulating-spatially-explicit-data"><i class="fa fa-check"></i><b>5.3.2</b> Simulating spatially explicit data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="r-programming.html"><a href="r-programming.html#exercises"><i class="fa fa-check"></i><b>5.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html"><i class="fa fa-check"></i><b>6</b> Grammar of graphics plots</a><ul>
+<li class="chapter" data-level="6.1" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#histograms"><i class="fa fa-check"></i><b>6.1</b> Histograms</a></li>
+<li class="chapter" data-level="6.2" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#aesthetics"><i class="fa fa-check"></i><b>6.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="6.3" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#default-histogram"><i class="fa fa-check"></i><b>6.3</b> Default histogram</a></li>
+<li class="chapter" data-level="6.4" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#facet-wrapping"><i class="fa fa-check"></i><b>6.4</b> Facet wrapping</a></li>
+<li class="chapter" data-level="6.5" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#density-plots."><i class="fa fa-check"></i><b>6.5</b> Density plots.</a></li>
+<li class="chapter" data-level="6.6" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#adding-grouping-aesthetics"><i class="fa fa-check"></i><b>6.6</b> Adding grouping aesthetics</a></li>
+<li class="chapter" data-level="6.7" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#boxplots"><i class="fa fa-check"></i><b>6.7</b> Boxplots</a></li>
+<li class="chapter" data-level="6.8" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#conditioning-on-two-variables"><i class="fa fa-check"></i><b>6.8</b> Conditioning on two variables</a></li>
+<li class="chapter" data-level="6.9" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#confidence-interval-plots"><i class="fa fa-check"></i><b>6.9</b> Confidence interval plots</a></li>
+<li class="chapter" data-level="6.10" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#dynamite-plots"><i class="fa fa-check"></i><b>6.10</b> Dynamite plots</a></li>
+<li class="chapter" data-level="6.11" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#inference-on-medians"><i class="fa fa-check"></i><b>6.11</b> Inference on medians</a></li>
+<li class="chapter" data-level="6.12" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#scatterplots"><i class="fa fa-check"></i><b>6.12</b> Scatterplots</a></li>
+<li class="chapter" data-level="6.13" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#adding-a-regression-line"><i class="fa fa-check"></i><b>6.13</b> Adding a regression line</a></li>
+<li class="chapter" data-level="6.14" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#grouping-and-conditioning"><i class="fa fa-check"></i><b>6.14</b> Grouping and conditioning</a></li>
+<li class="chapter" data-level="6.15" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#curvilinear-relationships"><i class="fa fa-check"></i><b>6.15</b> Curvilinear relationships</a></li>
+<li class="chapter" data-level="6.16" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#generalised-linear-models"><i class="fa fa-check"></i><b>6.16</b> Generalised linear models</a></li>
+<li class="chapter" data-level="6.17" data-path="grammar-of-graphics-plots.html"><a href="grammar-of-graphics-plots.html#binomial-data"><i class="fa fa-check"></i><b>6.17</b> Binomial data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html"><i class="fa fa-check"></i><b>7</b> Introduction to statistical modelling</a><ul>
+<li class="chapter" data-level="7.1" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#what-is-a-statistical-model"><i class="fa fa-check"></i><b>7.1</b> What is a statistical model?</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#uses-of-models"><i class="fa fa-check"></i><b>7.1.1</b> Uses of models</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#the-general-linear-model"><i class="fa fa-check"></i><b>7.2</b> The general linear model</a></li>
+<li class="chapter" data-level="7.3" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#regression"><i class="fa fa-check"></i><b>7.3</b> Regression</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#theory"><i class="fa fa-check"></i><b>7.3.1</b> Theory</a></li>
+<li class="chapter" data-level="7.3.2" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#example"><i class="fa fa-check"></i><b>7.3.2</b> Example</a></li>
+<li class="chapter" data-level="7.3.3" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#confidence-intervals"><i class="fa fa-check"></i><b>7.3.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="7.3.4" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#prediction-1"><i class="fa fa-check"></i><b>7.3.4</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#using-ggplot2-for-confidence-intervals."><i class="fa fa-check"></i><b>7.4</b> Using ggplot2 for confidence intervals.</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#prediction-intervals"><i class="fa fa-check"></i><b>7.4.1</b> Prediction intervals</a></li>
+<li class="chapter" data-level="7.4.2" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#lack-of-independence"><i class="fa fa-check"></i><b>7.4.2</b> Lack of independence</a></li>
+<li class="chapter" data-level="7.4.3" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#violations-of-assumptions"><i class="fa fa-check"></i><b>7.4.3</b> Violations of assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#exercises-1"><i class="fa fa-check"></i><b>7.5</b> Exercises</a></li>
+<li class="chapter" data-level="7.6" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#some-data-wrangling"><i class="fa fa-check"></i><b>7.6</b> Some “data wrangling”</a></li>
+<li class="chapter" data-level="7.7" data-path="introduction-to-statistical-modelling.html"><a href="introduction-to-statistical-modelling.html#one-way-to-run-multiple-analyses"><i class="fa fa-check"></i><b>7.7</b> One way to run multiple analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html"><i class="fa fa-check"></i><b>8</b> Some theory on the general linear model</a><ul>
+<li class="chapter" data-level="8.1" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#calculating-the-sum-of-squares"><i class="fa fa-check"></i><b>8.1</b> Calculating the sum of squares</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#regression-1"><i class="fa fa-check"></i><b>8.1.1</b> Regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#residuals"><i class="fa fa-check"></i><b>8.1.2</b> Residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#where-does-r-squared-coefficient-of-determination-come-from"><i class="fa fa-check"></i><b>8.2</b> Where does R squared (coefficient of determination) come from?</a></li>
+<li class="chapter" data-level="8.3" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#model-assumptions"><i class="fa fa-check"></i><b>8.3</b> Model assumptions</a></li>
+<li class="chapter" data-level="8.4" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#some-practice-using-linear-models"><i class="fa fa-check"></i><b>8.4</b> Some practice using linear models</a></li>
+<li class="chapter" data-level="8.5" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#one-way-anova"><i class="fa fa-check"></i><b>8.5</b> One way Anova</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#diagnostics"><i class="fa fa-check"></i><b>8.5.1</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#statistical-inference"><i class="fa fa-check"></i><b>8.6</b> Statistical inference</a></li>
+<li class="chapter" data-level="8.7" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#fitting-a-linear-model"><i class="fa fa-check"></i><b>8.7</b> Fitting a linear model</a></li>
+<li class="chapter" data-level="8.8" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#diagnostics-1"><i class="fa fa-check"></i><b>8.8</b> Diagnostics</a></li>
+<li class="chapter" data-level="8.9" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#treatment-contrasts-using-summary"><i class="fa fa-check"></i><b>8.9</b> Treatment contrasts using summary</a></li>
+<li class="chapter" data-level="8.10" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#changing-the-reference-leval"><i class="fa fa-check"></i><b>8.10</b> Changing the reference leval</a></li>
+<li class="chapter" data-level="8.11" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#multiple-comparisons"><i class="fa fa-check"></i><b>8.11</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="8.12" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#scale-location-plot"><i class="fa fa-check"></i><b>8.12</b> Scale location plot</a></li>
+<li class="chapter" data-level="8.13" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#example-of-heterogeniety"><i class="fa fa-check"></i><b>8.13</b> Example of heterogeniety</a></li>
+<li class="chapter" data-level="8.14" data-path="some-theory-on-the-general-linear-model.html"><a href="some-theory-on-the-general-linear-model.html#exercises-2"><i class="fa fa-check"></i><b>8.14</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html"><i class="fa fa-check"></i><b>9</b> One way ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#introduction-3"><i class="fa fa-check"></i><b>9.1</b> Introduction</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#multiple-comparisons-1"><i class="fa fa-check"></i><b>9.1.1</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="9.1.2" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#visualising-between-group-variation-using-boxplots"><i class="fa fa-check"></i><b>9.1.2</b> Visualising between group variation using boxplots</a></li>
+<li class="chapter" data-level="9.1.3" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#boxplot-statistics"><i class="fa fa-check"></i><b>9.1.3</b> Boxplot statistics</a></li>
+<li class="chapter" data-level="9.1.4" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#plotting-confidence-intervals-for-each-group"><i class="fa fa-check"></i><b>9.1.4</b> Plotting confidence intervals for each group</a></li>
+<li class="chapter" data-level="9.1.5" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#fitting-a-model"><i class="fa fa-check"></i><b>9.1.5</b> Fitting a model</a></li>
+<li class="chapter" data-level="9.1.6" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#the-f-ratio-and-degrees-of-freedom"><i class="fa fa-check"></i><b>9.1.6</b> The F ratio and degrees of freedom</a></li>
+<li class="chapter" data-level="9.1.7" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#homogeneity-of-variance-1"><i class="fa fa-check"></i><b>9.1.7</b> Homogeneity of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#alternative-to-the-one-way-test"><i class="fa fa-check"></i><b>9.2</b> Alternative to the one way test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#determining-where-the-differences-lie"><i class="fa fa-check"></i><b>9.2.1</b> Determining where the differences lie</a></li>
+<li class="chapter" data-level="9.2.2" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#bonferoni-corrections"><i class="fa fa-check"></i><b>9.2.2</b> Bonferoni corrections</a></li>
+<li class="chapter" data-level="9.2.3" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#tukeys-honest-significant-difference"><i class="fa fa-check"></i><b>9.2.3</b> Tukey’s honest significant difference</a></li>
+<li class="chapter" data-level="9.2.4" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#the-kruskal-wallace-non-parametric-test."><i class="fa fa-check"></i><b>9.2.4</b> The Kruskal Wallace non parametric test.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#power-analysis"><i class="fa fa-check"></i><b>9.3</b> Power analysis</a></li>
+<li class="chapter" data-level="9.4" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#bayesian-methods"><i class="fa fa-check"></i><b>9.4</b> Bayesian methods</a></li>
+<li class="chapter" data-level="9.5" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#the-mussels-data-set"><i class="fa fa-check"></i><b>9.5</b> The mussels data set</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#heterogeneity-of-variance-and-unbalanced-sample-sizes"><i class="fa fa-check"></i><b>9.5.1</b> Heterogeneity of variance and unbalanced sample sizes</a></li>
+<li class="chapter" data-level="9.5.2" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#confidence-intervals-1"><i class="fa fa-check"></i><b>9.5.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.5.3" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#conventional-one-way-anova-and-multiple-comparisons"><i class="fa fa-check"></i><b>9.5.3</b> Conventional One way ANOVA and multiple comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#treatment-contrasts"><i class="fa fa-check"></i><b>9.6</b> Treatment contrasts</a></li>
+<li class="chapter" data-level="9.7" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#multiple-comparisons-2"><i class="fa fa-check"></i><b>9.7</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="9.8" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#sum-to-zero-contrasts"><i class="fa fa-check"></i><b>9.8</b> Sum to zero contrasts</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#heterogenity-of-variance"><i class="fa fa-check"></i><b>9.8.1</b> Heterogenity of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#bayesian-credible-inference"><i class="fa fa-check"></i><b>9.9</b> Bayesian credible inference</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#pooled-variance-model-using-jags"><i class="fa fa-check"></i><b>9.9.1</b> Pooled variance model using JAGS</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#independent-variances-model"><i class="fa fa-check"></i><b>9.10</b> Independent variances model</a></li>
+<li class="chapter" data-level="9.11" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#random-effects-model"><i class="fa fa-check"></i><b>9.11</b> Random effects model</a></li>
+<li class="chapter" data-level="9.12" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#extensions-and-conclusion"><i class="fa fa-check"></i><b>9.12</b> Extensions and conclusion</a></li>
+<li class="chapter" data-level="9.13" data-path="one-way-anova-1.html"><a href="one-way-anova-1.html#references"><i class="fa fa-check"></i><b>9.13</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html"><i class="fa fa-check"></i><b>10</b> Fitting curves to data</a><ul>
+<li class="chapter" data-level="10.1" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#data-exploration"><i class="fa fa-check"></i><b>10.1</b> Data exploration</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#visualisation"><i class="fa fa-check"></i><b>10.1.1</b> Visualisation</a></li>
+<li class="chapter" data-level="10.1.2" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#t-values-and-significance-in-summary-output"><i class="fa fa-check"></i><b>10.1.2</b> T values and significance in summary output</a></li>
+<li class="chapter" data-level="10.1.3" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#testing-for-curvilearity"><i class="fa fa-check"></i><b>10.1.3</b> Testing for curvilearity</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#polynomials"><i class="fa fa-check"></i><b>10.2</b> Polynomials</a></li>
+<li class="chapter" data-level="10.3" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#splines"><i class="fa fa-check"></i><b>10.3</b> Splines</a></li>
+<li class="chapter" data-level="10.4" data-path="fitting-curves-to-data.html"><a href="fitting-curves-to-data.html#complex-shapes"><i class="fa fa-check"></i><b>10.4</b> Complex shapes</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="non-linear-models.html"><a href="non-linear-models.html"><i class="fa fa-check"></i><b>11</b> Non-linear models</a><ul>
+<li class="chapter" data-level="11.1" data-path="non-linear-models.html"><a href="non-linear-models.html#fitting-a-rectangular-hyperbola"><i class="fa fa-check"></i><b>11.1</b> Fitting a rectangular hyperbola</a></li>
+<li class="chapter" data-level="11.2" data-path="non-linear-models.html"><a href="non-linear-models.html#real-data"><i class="fa fa-check"></i><b>11.2</b> Real data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="non-linear-models.html"><a href="non-linear-models.html#calculating-the-r-squared"><i class="fa fa-check"></i><b>11.2.1</b> Calculating the R squared</a></li>
+<li class="chapter" data-level="11.2.2" data-path="non-linear-models.html"><a href="non-linear-models.html#including-the-vigilance-term"><i class="fa fa-check"></i><b>11.2.2</b> Including the vigilance term</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="non-linear-models.html"><a href="non-linear-models.html#quantile-regression"><i class="fa fa-check"></i><b>11.3</b> Quantile regression</a></li>
+<li class="chapter" data-level="11.4" data-path="non-linear-models.html"><a href="non-linear-models.html#summary"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-models.html"><a href="non-linear-models.html#exercise-1"><i class="fa fa-check"></i><b>11.5</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html"><i class="fa fa-check"></i><b>12</b> Analysis of covariance, nested data and mixed effects</a><ul>
+<li class="chapter" data-level="12.1" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#introduction-4"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
+<li class="chapter" data-level="12.2" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#whale-teeth-and-isotope-ratios"><i class="fa fa-check"></i><b>12.2</b> Whale teeth and isotope ratios</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#mobys-tooth"><i class="fa fa-check"></i><b>12.2.1</b> Moby’s tooth</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#plotting-the-data-1"><i class="fa fa-check"></i><b>12.3</b> Plotting the data</a></li>
+<li class="chapter" data-level="12.4" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#fitting-a-regression"><i class="fa fa-check"></i><b>12.4</b> Fitting a regression</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#diagnostics-2"><i class="fa fa-check"></i><b>12.4.1</b> Diagnostics</a></li>
+<li class="chapter" data-level="12.4.2" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#testing-for-serial-correlation"><i class="fa fa-check"></i><b>12.4.2</b> Testing for serial correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#interpreting-the-results"><i class="fa fa-check"></i><b>12.5</b> Interpreting the results</a></li>
+<li class="chapter" data-level="12.6" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#exercise-2"><i class="fa fa-check"></i><b>12.6</b> Exercise</a></li>
+<li class="chapter" data-level="12.7" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#finding-a-general-pattern"><i class="fa fa-check"></i><b>12.7</b> Finding a general pattern</a></li>
+<li class="chapter" data-level="12.8" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#analysis-of-covariance"><i class="fa fa-check"></i><b>12.8</b> Analysis of covariance</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#more-about-interactions"><i class="fa fa-check"></i><b>12.8.1</b> More about interactions</a></li>
+<li class="chapter" data-level="12.8.2" data-path="analysis-of-covariance-nested-data-and-mixed-effects.html"><a href="analysis-of-covariance-nested-data-and-mixed-effects.html#plotting-the-model"><i class="fa fa-check"></i><b>12.8.2</b> Plotting the model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html"><i class="fa fa-check"></i><b>13</b> Introducing mixed effects modelling</a><ul>
+<li class="chapter" data-level="13.1" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#using-the-nlme-package"><i class="fa fa-check"></i><b>13.1</b> Using the nlme package</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#intercept-only-model"><i class="fa fa-check"></i><b>13.1.1</b> Intercept only model</a></li>
+<li class="chapter" data-level="13.1.2" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#random-slopes-model"><i class="fa fa-check"></i><b>13.1.2</b> Random slopes model</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#using-the-package-lme4"><i class="fa fa-check"></i><b>13.2</b> Using the package lme4</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#profile-confidence-intervals"><i class="fa fa-check"></i><b>13.2.1</b> Profile confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#ggplots-from-lme-output"><i class="fa fa-check"></i><b>13.3</b> Ggplots from lme output</a></li>
+<li class="chapter" data-level="13.4" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#mixed-effect-gamm-models"><i class="fa fa-check"></i><b>13.4</b> Mixed effect gamm models</a></li>
+<li class="chapter" data-level="13.5" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#summary-1"><i class="fa fa-check"></i><b>13.5</b> Summary</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="introducing-mixed-effects-modelling.html"><a href="introducing-mixed-effects-modelling.html#exercises-3"><i class="fa fa-check"></i><b>13.5.1</b> Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html"><i class="fa fa-check"></i><b>14</b> Design and analysis of experiments part 1</a><ul>
+<li class="chapter" data-level="14.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#introduction-5"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.2" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#basic-concepts-of-experimental-design"><i class="fa fa-check"></i><b>14.2</b> Basic concepts of experimental design</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#replication"><i class="fa fa-check"></i><b>14.2.1</b> 1. Replication</a></li>
+<li class="chapter" data-level="14.2.2" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#treatment-levels"><i class="fa fa-check"></i><b>14.2.2</b> 2. Treatment levels</a></li>
+<li class="chapter" data-level="14.2.3" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#randomisation"><i class="fa fa-check"></i><b>14.2.3</b> 3. Randomisation</a></li>
+<li class="chapter" data-level="14.2.4" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#interactions"><i class="fa fa-check"></i><b>14.2.4</b> 4. Interactions</a></li>
+<li class="chapter" data-level="14.2.5" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#fixed-and-random-effects"><i class="fa fa-check"></i><b>14.2.5</b> 5. Fixed and random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#types-of-design"><i class="fa fa-check"></i><b>14.3</b> Types of design</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#completely-randomised-design"><i class="fa fa-check"></i><b>14.3.1</b> Completely randomised design</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#visualising-the-data"><i class="fa fa-check"></i><b>14.4</b> Visualising the data</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#comparisons"><i class="fa fa-check"></i><b>14.4.1</b> Comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#completely-randomised-design-with-subsampling"><i class="fa fa-check"></i><b>14.5</b> Completely randomised design with subsampling</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#wrong-analyisis-for-the-subsampling"><i class="fa fa-check"></i><b>14.5.1</b> Wrong analyisis for the subsampling</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#randomized-complete-block-design"><i class="fa fa-check"></i><b>14.6</b> Randomized Complete Block Design</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#wrong-analysis-ignoring-the-effect-of-block"><i class="fa fa-check"></i><b>14.6.1</b> Wrong analysis ignoring the effect of block</a></li>
+<li class="chapter" data-level="14.6.2" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#treating-block-as-a-random-effect"><i class="fa fa-check"></i><b>14.6.2</b> Treating block as a random effect</a></li>
+<li class="chapter" data-level="14.6.3" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#treating-block-as-a-fixed-effect"><i class="fa fa-check"></i><b>14.6.3</b> Treating block as a fixed effect</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#illustation-of-how-block-effects-work"><i class="fa fa-check"></i><b>14.7</b> Illustation of how block effects work</a></li>
+<li class="chapter" data-level="14.8" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#an-observational-example-of-sub-sampling"><i class="fa fa-check"></i><b>14.8</b> An observational example of sub-sampling</a><ul>
+<li class="chapter" data-level="14.8.1" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#plot-the-raw-data"><i class="fa fa-check"></i><b>14.8.1</b> Plot the raw data</a></li>
+<li class="chapter" data-level="14.8.2" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#group-to-take-mean-richness-at-each-site-with-same-algal-coverage"><i class="fa fa-check"></i><b>14.8.2</b> Group to take mean richness at each site with same algal coverage</a></li>
+<li class="chapter" data-level="14.8.3" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#use-raw-data-with-a-random-effect-for-site"><i class="fa fa-check"></i><b>14.8.3</b> Use raw data with a random effect for site</a></li>
+</ul></li>
+<li class="chapter" data-level="14.9" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#summary-2"><i class="fa fa-check"></i><b>14.9</b> Summary</a></li>
+<li class="chapter" data-level="14.10" data-path="design-and-analysis-of-experiments-part-1.html"><a href="design-and-analysis-of-experiments-part-1.html#exercises-4"><i class="fa fa-check"></i><b>14.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html"><i class="fa fa-check"></i><b>15</b> Repeat measures designs</a><ul>
+<li class="chapter" data-level="15.1" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html#paired-t-test"><i class="fa fa-check"></i><b>15.1</b> Paired t-test</a></li>
+<li class="chapter" data-level="15.2" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html#mixed-effects-model"><i class="fa fa-check"></i><b>15.2</b> Mixed effects model</a></li>
+<li class="chapter" data-level="15.3" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html#repeat-measures-with-subsampling"><i class="fa fa-check"></i><b>15.3</b> Repeat measures with subsampling</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html#visualising-the-data-1"><i class="fa fa-check"></i><b>15.3.1</b> Visualising the data</a></li>
+<li class="chapter" data-level="15.3.2" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html#incorrect-model-specification."><i class="fa fa-check"></i><b>15.3.2</b> Incorrect model specification.</a></li>
+<li class="chapter" data-level="15.3.3" data-path="repeat-measures-designs.html"><a href="repeat-measures-designs.html#mixed-effect-model"><i class="fa fa-check"></i><b>15.3.3</b> Mixed effect model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="factorial-designs.html"><a href="factorial-designs.html"><i class="fa fa-check"></i><b>16</b> Factorial designs</a><ul>
+<li class="chapter" data-level="16.1" data-path="factorial-designs.html"><a href="factorial-designs.html#model-fitting"><i class="fa fa-check"></i><b>16.1</b> Model fitting</a></li>
+<li class="chapter" data-level="16.2" data-path="factorial-designs.html"><a href="factorial-designs.html#experiment-with-interactions"><i class="fa fa-check"></i><b>16.2</b> Experiment with interactions</a></li>
+<li class="chapter" data-level="16.3" data-path="factorial-designs.html"><a href="factorial-designs.html#full-factorial-with-blocking"><i class="fa fa-check"></i><b>16.3</b> Full factorial with blocking</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="factorial-designs.html"><a href="factorial-designs.html#model-not-taking-into-account-blocks"><i class="fa fa-check"></i><b>16.3.1</b> Model not taking into account blocks</a></li>
+<li class="chapter" data-level="16.3.2" data-path="factorial-designs.html"><a href="factorial-designs.html#model-with-block-as-a-random-effect."><i class="fa fa-check"></i><b>16.3.2</b> Model with block as a random effect.</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="factorial-designs.html"><a href="factorial-designs.html#split-plot"><i class="fa fa-check"></i><b>16.4</b> Split plot</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="factorial-designs.html"><a href="factorial-designs.html#visualising-the-data-2"><i class="fa fa-check"></i><b>16.4.1</b> Visualising the data</a></li>
+<li class="chapter" data-level="16.4.2" data-path="factorial-designs.html"><a href="factorial-designs.html#incorrect-model"><i class="fa fa-check"></i><b>16.4.2</b> Incorrect model</a></li>
+<li class="chapter" data-level="16.4.3" data-path="factorial-designs.html"><a href="factorial-designs.html#correct-model"><i class="fa fa-check"></i><b>16.4.3</b> Correct model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html"><i class="fa fa-check"></i><b>17</b> Generalised linear models</a><ul>
+<li class="chapter" data-level="17.1" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#poisson-regression"><i class="fa fa-check"></i><b>17.1</b> Poisson regression</a></li>
+<li class="chapter" data-level="17.2" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#ggplot"><i class="fa fa-check"></i><b>17.2</b> GGplot</a></li>
+<li class="chapter" data-level="17.3" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#showing-the-results-with-logged-y"><i class="fa fa-check"></i><b>17.3</b> Showing the results with logged y</a></li>
+<li class="chapter" data-level="17.4" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#log-link-function-explained"><i class="fa fa-check"></i><b>17.4</b> Log link function explained</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#likelihood-and-deviance"><i class="fa fa-check"></i><b>17.4.1</b> Likelihood and deviance</a></li>
+<li class="chapter" data-level="17.4.2" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#negative-binomial-regression"><i class="fa fa-check"></i><b>17.4.2</b> Negative binomial regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#comparing-the-results"><i class="fa fa-check"></i><b>17.5</b> Comparing the results</a></li>
+<li class="chapter" data-level="17.6" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#models-with-binomial-errors"><i class="fa fa-check"></i><b>17.6</b> Models with binomial errors</a></li>
+<li class="chapter" data-level="17.7" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#the-logit-link-function"><i class="fa fa-check"></i><b>17.7</b> The logit link function</a></li>
+<li class="chapter" data-level="17.8" data-path="generalised-linear-models-1.html"><a href="generalised-linear-models-1.html#exercises-5"><i class="fa fa-check"></i><b>17.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html"><i class="fa fa-check"></i><b>18</b> Modelling with multiple variables</a><ul>
+<li class="chapter" data-level="18.1" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#introduction-6"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18.2" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#example-data"><i class="fa fa-check"></i><b>18.2</b> Example data</a></li>
+<li class="chapter" data-level="18.3" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#muliple-regression"><i class="fa fa-check"></i><b>18.3</b> Muliple regression</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#analysis-of-the-distribution-of-variability"><i class="fa fa-check"></i><b>18.3.1</b> Analysis of the distribution of variability</a></li>
+<li class="chapter" data-level="18.3.2" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#transformation"><i class="fa fa-check"></i><b>18.3.2</b> Transformation</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#collinearity"><i class="fa fa-check"></i><b>18.4</b> Collinearity</a></li>
+<li class="chapter" data-level="18.5" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#model-selection"><i class="fa fa-check"></i><b>18.5</b> Model selection</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#dropping-terms"><i class="fa fa-check"></i><b>18.5.1</b> Dropping terms</a></li>
+<li class="chapter" data-level="18.5.2" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#stepwise-model-selection"><i class="fa fa-check"></i><b>18.5.2</b> Stepwise model selection</a></li>
+<li class="chapter" data-level="18.5.3" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#the-variance-inflation-factor"><i class="fa fa-check"></i><b>18.5.3</b> The variance inflation factor</a></li>
+<li class="chapter" data-level="18.5.4" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#diagnostics-3"><i class="fa fa-check"></i><b>18.5.4</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#generalised-additive-models"><i class="fa fa-check"></i><b>18.6</b> Generalised Additive Models</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#fitting-a-gam-with-multiple-variables"><i class="fa fa-check"></i><b>18.6.1</b> Fitting a gam with multiple variables</a></li>
+<li class="chapter" data-level="18.6.2" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#quick-model-selection-for-gams"><i class="fa fa-check"></i><b>18.6.2</b> Quick model selection for Gams</a></li>
+<li class="chapter" data-level="18.6.3" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#akaike-weighting-relative-strength-of-evidence-approach."><i class="fa fa-check"></i><b>18.6.3</b> Akaike weighting, relative strength of evidence approach.</a></li>
+<li class="chapter" data-level="18.6.4" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#the-method."><i class="fa fa-check"></i><b>18.6.4</b> The method.</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#tree-models"><i class="fa fa-check"></i><b>18.7</b> Tree models</a><ul>
+<li class="chapter" data-level="18.7.1" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#fitting-and-plotting-a-tree-model"><i class="fa fa-check"></i><b>18.7.1</b> Fitting and plotting a tree model</a></li>
+<li class="chapter" data-level="18.7.2" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#pruning-the-tree"><i class="fa fa-check"></i><b>18.7.2</b> Pruning the tree</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#which-technique-to-use"><i class="fa fa-check"></i><b>18.8</b> Which technique to use?</a></li>
+<li class="chapter" data-level="18.9" data-path="modelling-with-multiple-variables.html"><a href="modelling-with-multiple-variables.html#references-1"><i class="fa fa-check"></i><b>18.9</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html"><i class="fa fa-check"></i><b>19</b> Analysis of multi-species data</a><ul>
+<li class="chapter" data-level="19.1" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#working-with-the-sites-by-species-matrix"><i class="fa fa-check"></i><b>19.1</b> Working with the sites by species matrix</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#bci-data"><i class="fa fa-check"></i><b>19.1.1</b> BCI data</a></li>
+<li class="chapter" data-level="19.1.2" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#reshaping-the-site-by-species-matrix"><i class="fa fa-check"></i><b>19.1.2</b> Reshaping the site by species matrix</a></li>
+<li class="chapter" data-level="19.1.3" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#working-with-apply"><i class="fa fa-check"></i><b>19.1.3</b> Working with apply</a></li>
+<li class="chapter" data-level="19.1.4" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#working-with-the-long-format-data-frame"><i class="fa fa-check"></i><b>19.1.4</b> Working with the long format data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#resampling-individuals"><i class="fa fa-check"></i><b>19.2</b> Resampling individuals</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#simpsons-and-shannons-indices"><i class="fa fa-check"></i><b>19.2.1</b> Simpson’s and Shannon’s indices</a></li>
+<li class="chapter" data-level="19.2.2" data-path="analysis-of-multi-species-data.html"><a href="analysis-of-multi-species-data.html#exercises-6"><i class="fa fa-check"></i><b>19.2.2</b> Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html"><i class="fa fa-check"></i><b>20</b> Analysing patterns in species composition</a><ul>
+<li class="chapter" data-level="20.1" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#differences-between-sites"><i class="fa fa-check"></i><b>20.1</b> Differences between sites</a></li>
+<li class="chapter" data-level="20.2" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#mantel-tests"><i class="fa fa-check"></i><b>20.2</b> Mantel tests</a></li>
+<li class="chapter" data-level="20.3" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#correlation-with-environmental-variables"><i class="fa fa-check"></i><b>20.3</b> Correlation with environmental variables</a></li>
+<li class="chapter" data-level="20.4" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#ordination"><i class="fa fa-check"></i><b>20.4</b> Ordination</a></li>
+<li class="chapter" data-level="20.5" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#non-metric-multi-dimensional-scaling-nmds"><i class="fa fa-check"></i><b>20.5</b> Non-metric multi dimensional scaling NMDS</a></li>
+<li class="chapter" data-level="20.6" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#single-gradient-nmds"><i class="fa fa-check"></i><b>20.6</b> Single gradient NMDS</a></li>
+<li class="chapter" data-level="20.7" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#multiple-axis-nmds"><i class="fa fa-check"></i><b>20.7</b> Multiple axis NMDS</a></li>
+<li class="chapter" data-level="20.8" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#clustering"><i class="fa fa-check"></i><b>20.8</b> Clustering</a></li>
+<li class="chapter" data-level="20.9" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#clam-test"><i class="fa fa-check"></i><b>20.9</b> Clam test</a></li>
+<li class="chapter" data-level="20.10" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#simper"><i class="fa fa-check"></i><b>20.10</b> Simper</a></li>
+<li class="chapter" data-level="20.11" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#clustering-by-species"><i class="fa fa-check"></i><b>20.11</b> Clustering by species</a></li>
+<li class="chapter" data-level="20.12" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#anosim"><i class="fa fa-check"></i><b>20.12</b> Anosim</a></li>
+<li class="chapter" data-level="20.13" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#adonis"><i class="fa fa-check"></i><b>20.13</b> Adonis</a></li>
+<li class="chapter" data-level="20.14" data-path="analysing-patterns-in-species-composition.html"><a href="analysing-patterns-in-species-composition.html#canonical-correspondence-analysis"><i class="fa fa-check"></i><b>20.14</b> Canonical Correspondence Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html"><i class="fa fa-check"></i><b>21</b> Simulating and analysing data from questionnaires</a><ul>
+<li class="chapter" data-level="21.1" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#introduction-7"><i class="fa fa-check"></i><b>21.1</b> Introduction</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#packages-used"><i class="fa fa-check"></i><b>21.1.1</b> Packages used</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#simulating-a-single-vector-of-likert-data"><i class="fa fa-check"></i><b>21.2</b> Simulating a single vector of Likert data</a><ul>
+<li class="chapter" data-level="21.2.1" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#character-vectors-and-factors"><i class="fa fa-check"></i><b>21.2.1</b> Character vectors and factors</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#numerical-vectors-to-likert-vectors"><i class="fa fa-check"></i><b>21.3</b> Numerical vectors to Likert vectors</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#forming-a-data-frame"><i class="fa fa-check"></i><b>21.3.1</b> Forming a data frame</a></li>
+<li class="chapter" data-level="21.3.2" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#adding-question-text"><i class="fa fa-check"></i><b>21.3.2</b> Adding question text</a></li>
+<li class="chapter" data-level="21.3.3" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#joining-the-two-tables"><i class="fa fa-check"></i><b>21.3.3</b> Joining the two tables</a></li>
+<li class="chapter" data-level="21.3.4" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#plotting-the-results"><i class="fa fa-check"></i><b>21.3.4</b> Plotting the results</a></li>
+<li class="chapter" data-level="21.3.5" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#grouping-data"><i class="fa fa-check"></i><b>21.3.5</b> Grouping data</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#simulating-responses-that-differ-between-subject-specific-variables"><i class="fa fa-check"></i><b>21.4</b> Simulating responses that differ between subject specific variables</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#using-the-beta-distribution-to-simulate-likert-data"><i class="fa fa-check"></i><b>21.4.1</b> Using the beta distribution to simulate Likert data</a></li>
+<li class="chapter" data-level="21.4.2" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#joining-the-tables"><i class="fa fa-check"></i><b>21.4.2</b> Joining the tables</a></li>
+<li class="chapter" data-level="21.4.3" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#section"><i class="fa fa-check"></i><b>21.4.3</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#statistical-tests"><i class="fa fa-check"></i><b>21.5</b> Statistical tests</a><ul>
+<li class="chapter" data-level="21.5.1" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#analysing-as-a-binary-responses"><i class="fa fa-check"></i><b>21.5.1</b> Analysing as a binary responses</a></li>
+<li class="chapter" data-level="21.5.2" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#visualising-response-to-a-continuous-variable"><i class="fa fa-check"></i><b>21.5.2</b> Visualising response to a continuous variable</a></li>
+<li class="chapter" data-level="21.5.3" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#screening-all-questions"><i class="fa fa-check"></i><b>21.5.3</b> Screening all questions</a></li>
+<li class="chapter" data-level="21.5.4" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#latent-factor-analysis"><i class="fa fa-check"></i><b>21.5.4</b> Latent factor analysis</a></li>
+<li class="chapter" data-level="21.5.5" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#setting-up-the-data-frame"><i class="fa fa-check"></i><b>21.5.5</b> Setting up the data frame</a></li>
+<li class="chapter" data-level="21.5.6" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#data-manipulation"><i class="fa fa-check"></i><b>21.5.6</b> Data manipulation</a></li>
+<li class="chapter" data-level="21.5.7" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#correlation-matrix"><i class="fa fa-check"></i><b>21.5.7</b> Correlation matrix</a></li>
+<li class="chapter" data-level="21.5.8" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#polychoric-scree-plots"><i class="fa fa-check"></i><b>21.5.8</b> Polychoric scree plots</a></li>
+<li class="chapter" data-level="21.5.9" data-path="simulating-and-analysing-data-from-questionnaires.html"><a href="simulating-and-analysing-data-from-questionnaires.html#hierarchical-factors-and-item-response-theory"><i class="fa fa-check"></i><b>21.5.9</b> Hierarchical factors and item response theory</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html"><i class="fa fa-check"></i><b>22</b> Simple text processing with sentiment analysis</a><ul>
+<li class="chapter" data-level="22.1" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#introduction-8"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+<li class="chapter" data-level="22.2" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#reading-in-the-data"><i class="fa fa-check"></i><b>22.2</b> Reading in the data</a></li>
+<li class="chapter" data-level="22.3" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#making-a-data-frame-consisting-of-just-words"><i class="fa fa-check"></i><b>22.3</b> Making a data frame consisting of just words</a></li>
+<li class="chapter" data-level="22.4" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#count-the-frequenciy-of-each-word"><i class="fa fa-check"></i><b>22.4</b> Count the frequenciy of each word</a></li>
+<li class="chapter" data-level="22.5" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#word-cloud"><i class="fa fa-check"></i><b>22.5</b> Word cloud</a></li>
+<li class="chapter" data-level="22.6" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#find-the-sentiments-associated-with-the-words"><i class="fa fa-check"></i><b>22.6</b> Find the sentiments associated with the words</a></li>
+<li class="chapter" data-level="22.7" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#plotting-the-frequencies-of-the-sentiments"><i class="fa fa-check"></i><b>22.7</b> Plotting the frequencies of the sentiments</a></li>
+<li class="chapter" data-level="22.8" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#words-associated-with-each-sentiment"><i class="fa fa-check"></i><b>22.8</b> Words associated with each sentiment</a></li>
+<li class="chapter" data-level="22.9" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#used-in-a-questionaire-context"><i class="fa fa-check"></i><b>22.9</b> Used in a questionaire context</a></li>
+<li class="chapter" data-level="22.10" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#example-one-line-per-tweet"><i class="fa fa-check"></i><b>22.10</b> Example: One line per tweet</a></li>
+<li class="chapter" data-level="22.11" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#extracting-the-words"><i class="fa fa-check"></i><b>22.11</b> Extracting the words</a></li>
+<li class="chapter" data-level="22.12" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#sentiment-scores"><i class="fa fa-check"></i><b>22.12</b> Sentiment scores</a></li>
+<li class="chapter" data-level="22.13" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#is-there-a-relationship-between-the-scores-and-the-number-of-times-the-tweet-is-favourited"><i class="fa fa-check"></i><b>22.13</b> Is there a relationship between the scores and the number of times the tweet is favourited?</a></li>
+<li class="chapter" data-level="22.14" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#using-udpipe"><i class="fa fa-check"></i><b>22.14</b> Using Udpipe</a></li>
+<li class="chapter" data-level="22.15" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#nouns"><i class="fa fa-check"></i><b>22.15</b> Nouns</a></li>
+<li class="chapter" data-level="22.16" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#verbs"><i class="fa fa-check"></i><b>22.16</b> Verbs</a></li>
+<li class="chapter" data-level="22.17" data-path="simple-text-processing-with-sentiment-analysis.html"><a href="simple-text-processing-with-sentiment-analysis.html#adjectives"><i class="fa fa-check"></i><b>22.17</b> Adjectives</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html"><i class="fa fa-check"></i><b>23</b> Time series analysis: Climate data</a><ul>
+<li class="chapter" data-level="23.1" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#load-the-data"><i class="fa fa-check"></i><b>23.1</b> Load the data</a></li>
+<li class="chapter" data-level="23.2" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#plot-the-time-series-for-the-hadcrut4-data-set"><i class="fa fa-check"></i><b>23.2</b> Plot the time series for the hadcrut4 data set</a></li>
+<li class="chapter" data-level="23.3" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#example-to-explain-serial-autocorrelation"><i class="fa fa-check"></i><b>23.3</b> Example to explain serial autocorrelation</a></li>
+<li class="chapter" data-level="23.4" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#accounting-for-serial-autocorrelation-in-the-real-climate-data"><i class="fa fa-check"></i><b>23.4</b> Accounting for serial autocorrelation in the real climate data</a></li>
+<li class="chapter" data-level="23.5" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#analysing-the-significance-of-the-slope"><i class="fa fa-check"></i><b>23.5</b> Analysing the significance of the slope</a></li>
+<li class="chapter" data-level="23.6" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#seasonal-data"><i class="fa fa-check"></i><b>23.6</b> Seasonal data</a></li>
+<li class="chapter" data-level="23.7" data-path="time-series-analysis-climate-data.html"><a href="time-series-analysis-climate-data.html#seasonal-decomposition-by-loess-smoothing"><i class="fa fa-check"></i><b>23.7</b> Seasonal decomposition by loess smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Quantitative methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="factorial-designs" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> Factorial designs</h1>
+<p>Factorial designs refer to situations in which more than one factor is of interest. There are various reasons to use more than one factor in an experiment. In some cases it may save time and money to measure the effects of two factors simultaneously. This makes sense if the factors are additive, with no interactions. In other situations we may actually be interested in looking for interactions between two factors. Altering the level of one factor may alter the effect of another.</p>
+<p>Let’s look at an example. An experimenter was interested in the effect of irrigation on the yield of two varieties of wheat. The design involved assigning variety and irrigation treatment at random to 24 plots in order to have 6 replicates of each combination of treatment levels (v1:i1,v1:i2,v2:i1 and v2:i2)</p>
+<div class="figure">
+<img src="figures/Factorial.png" />
+
+</div>
+<p>For the moment let’s ignore the possibilities of setting up the experiment within blocks and assume that the experimental units are uniform prior to treatment and are independent of each other.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;https://tinyurl.com/aqm-data/factorial.csv&quot;</span>)</code></pre></div>
+<p>We can look at the results as box plots by conditioning on one of the factors using facet wrapping.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-<span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x=</span>irrigation,<span class="dt">y=</span>yield))
+g0<span class="op">+</span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>We can also look at confidence intervals.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1&lt;-g0<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>)
+g1&lt;-g1<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;errorbar&quot;</span>,<span class="dt">colour=</span><span class="st">&quot;black&quot;</span>)
+g1<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div id="model-fitting" class="section level2">
+<h2><span class="header-section-number">16.1</span> Model fitting</h2>
+<p>There are no random effects in this design, so a simple linear model can be used. Typing an asterix (*) in the model formula fits a model with main effects and an interaction.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lm</span>(yield<span class="op">~</span>irrigation<span class="op">*</span>variety,<span class="dt">data=</span>d)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##                    Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## irrigation          1 113.600 113.600 28.9293 2.897e-05 ***
+## variety             1 208.128 208.128 53.0020 4.845e-07 ***
+## irrigation:variety  1   0.001   0.001  0.0003    0.9854    
+## Residuals          20  78.536   3.927                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = yield ~ irrigation * variety, data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4064 -0.9752  0.4121  1.0838  2.7629 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)            10.18679    0.80899  12.592 5.78e-11 ***
+## irrigationi2            4.33623    1.14409   3.790  0.00115 ** 
+## varietyv2               5.87464    1.14409   5.135 5.05e-05 ***
+## irrigationi2:varietyv2  0.03003    1.61798   0.019  0.98538    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.982 on 20 degrees of freedom
+## Multiple R-squared:  0.8038, Adjusted R-squared:  0.7744 
+## F-statistic: 27.31 on 3 and 20 DF,  p-value: 2.836e-07</code></pre>
+<p>You should be able to see that the interaction term in this case is not significant. The effects package allows us to look at the pattern of effects visually.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e &lt;-<span class="st"> </span><span class="kw">Effect</span>(<span class="kw">c</span>(<span class="st">&quot;irrigation&quot;</span>,<span class="st">&quot;variety&quot;</span>), mod)
+<span class="kw">plot</span>(e)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>You can see that the lines between the two levels of the factors follow the same slope but are moved up. This is indicative of additive effects. We could therefore fit a simpler model</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lm</span>(yield<span class="op">~</span>irrigation<span class="op">+</span>variety,<span class="dt">data=</span>d)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## irrigation  1 113.600  113.60  30.375 1.811e-05 ***
+## variety     1 208.128  208.13  55.651 2.478e-07 ***
+## Residuals  21  78.537    3.74                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = yield ~ irrigation + variety, data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.3989 -0.9827  0.4196  1.0876  2.7704 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   10.1793     0.6837  14.888 1.24e-12 ***
+## irrigationi2   4.3512     0.7895   5.511 1.81e-05 ***
+## varietyv2      5.8897     0.7895   7.460 2.48e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.934 on 21 degrees of freedom
+## Multiple R-squared:  0.8038, Adjusted R-squared:  0.7851 
+## F-statistic: 43.01 on 2 and 21 DF,  p-value: 3.747e-08</code></pre>
+</div>
+<div id="experiment-with-interactions" class="section level2">
+<h2><span class="header-section-number">16.2</span> Experiment with interactions</h2>
+<p>Let’s look at data from the same experimental set up, but in this case there <strong>is</strong> an interaction.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;https://tinyurl.com/aqm-data/factorial2.csv&quot;</span>)
+<span class="kw">head</span>(d)</code></pre></div>
+<pre><code>##   variety irrigation     yield
+## 1      v1         i1  8.747092
+## 2      v1         i2  7.367287
+## 3      v2         i1 13.328743
+## 4      v2         i2 23.190562
+## 5      v1         i1 10.659016
+## 6      v1         i2  5.359063</code></pre>
+<p>The pattern is apparent in the box plots.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-<span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x=</span>irrigation,<span class="dt">y=</span>yield))
+g0<span class="op">+</span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1&lt;-g0<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>)
+g1&lt;-g1<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;errorbar&quot;</span>,<span class="dt">colour=</span><span class="st">&quot;black&quot;</span>)
+g1<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Now if we fit a model we will find a very significant interaction.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lm</span>(yield<span class="op">~</span>irrigation<span class="op">*</span>variety,<span class="dt">data=</span>d)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##                    Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+## irrigation          1   0.74    0.74   0.1885    0.6688    
+## variety             1 586.83  586.83 149.4427 9.789e-11 ***
+## irrigation:variety  1  96.72   96.72  24.6313 7.484e-05 ***
+## Residuals          20  78.54    3.93                       
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = yield ~ irrigation * variety, data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4064 -0.9752  0.4121  1.0838  2.7629 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)              10.187      0.809  12.592 5.78e-11 ***
+## irrigationi2             -3.664      1.144  -3.202  0.00447 ** 
+## varietyv2                 5.875      1.144   5.135 5.05e-05 ***
+## irrigationi2:varietyv2    8.030      1.618   4.963 7.48e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.982 on 20 degrees of freedom
+## Multiple R-squared:  0.897,  Adjusted R-squared:  0.8816 
+## F-statistic: 58.09 on 3 and 20 DF,  p-value: 4.713e-10</code></pre>
+<p>The first variety does not respond positively to irrigation. In fact yield may be reduced through over watering. In this case the effects are not additive. They are conditional on the level of one of the factors. In this situation the main effects of irrigation or variety can be difficult to interpret as they represent the average effect taken over both levels of the other factor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e &lt;-<span class="st"> </span><span class="kw">Effect</span>(<span class="kw">c</span>(<span class="st">&quot;irrigation&quot;</span>,<span class="st">&quot;variety&quot;</span>), mod)
+<span class="kw">plot</span>(e)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Interactions are very common in many ecological situations. Although some textbooks on experimental design treat interactive effects as undesirable, finding interactions is an interesting result. In this case the discussion of the results could concentrate on finding an explanation for the difference in response between the two varieties.</p>
+</div>
+<div id="full-factorial-with-blocking" class="section level2">
+<h2><span class="header-section-number">16.3</span> Full factorial with blocking</h2>
+<p>The previous example treated each experimental unit as independent. In many situations there is some spatial dependence between experimental units.</p>
+<div class="figure">
+<img src="figures/Factorial_blocks.png" alt="alt text" />
+<p class="caption">alt text</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;https://tinyurl.com/aqm-data/factorial_block.csv&quot;</span>)
+<span class="kw">head</span>(d)</code></pre></div>
+<pre><code>##   variety   field field_effect irrigation     yield
+## 1      v1 field_1   -2.5058152         i1  8.469043
+## 2      v1 field_1   -2.5058152         i2 13.970834
+## 3      v2 field_1   -2.5058152         i1 13.645747
+## 4      v2 field_1   -2.5058152         i2 16.883408
+## 5      v1 field_2    0.7345733         i1 13.758136
+## 6      v1 field_2    0.7345733         i2 16.514260</code></pre>
+<p>Once again, the potential advantage of taking into account blocking is to increase the power of the analysis. If the intrinsic variability between blocks is contributing to the variability in the response of the experimental units then accounting for it in the statistical model will increase power.</p>
+<p>This can be seen in this example by first plotting the raw data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-<span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x=</span>irrigation,<span class="dt">y=</span>yield))
+g0<span class="op">+</span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1&lt;-g0<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>)
+g1&lt;-g1<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;errorbar&quot;</span>,<span class="dt">colour=</span><span class="st">&quot;black&quot;</span>)
+g1<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div id="model-not-taking-into-account-blocks" class="section level3">
+<h3><span class="header-section-number">16.3.1</span> Model not taking into account blocks</h3>
+<p>If we don’t take into account the variability attributable to the blocks in the model we lose statistical power.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lm</span>(yield<span class="op">~</span>variety<span class="op">*</span>irrigation,<span class="dt">data=</span>d)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##                    Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## variety             1 135.24 135.238  6.6790 0.01772 *
+## irrigation          1  87.57  87.567  4.3246 0.05064 .
+## variety:irrigation  1   2.96   2.962  0.1463 0.70614  
+## Residuals          20 404.97  20.248                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Effects plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e &lt;-<span class="st"> </span><span class="kw">Effect</span>(<span class="kw">c</span>(<span class="st">&quot;irrigation&quot;</span>,<span class="st">&quot;variety&quot;</span>), mod)
+<span class="kw">plot</span>(e)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+</div>
+<div id="model-with-block-as-a-random-effect." class="section level3">
+<h3><span class="header-section-number">16.3.2</span> Model with block as a random effect.</h3>
+<p>Block can be fitted as a random effect using lmer.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lmer</span>(yield<span class="op">~</span>variety<span class="op">*</span>irrigation<span class="op">+</span>(<span class="dv">1</span><span class="op">|</span>field),<span class="dt">data=</span>d)
+<span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: yield ~ variety * irrigation + (1 | field)
+##    Data: d
+## 
+## REML criterion at convergence: 103
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -1.98922 -0.49404 -0.04189  0.55337  1.34688 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev.
+##  field    (Intercept) 16.991   4.122   
+##  Residual              3.257   1.805   
+## Number of obs: 24, groups:  field, 6
+## 
+## Fixed effects:
+##                        Estimate Std. Error     df t value Pr(&gt;|t|)    
+## (Intercept)              11.172      1.837  6.426   6.082 0.000695 ***
+## varietyv2                 4.045      1.042 15.000   3.882 0.001474 ** 
+## irrigationi2              3.118      1.042 15.000   2.992 0.009119 ** 
+## varietyv2:irrigationi2    1.405      1.474 15.000   0.954 0.355380    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##             (Intr) vrtyv2 irrgt2
+## varietyv2   -0.284              
+## irrigation2 -0.284  0.500       
+## vrtyv2:rrg2  0.201 -0.707 -0.707</code></pre>
+<p>Now notice how the effects plot shows more effects of the treatment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e &lt;-<span class="st"> </span><span class="kw">Effect</span>(<span class="kw">c</span>(<span class="st">&quot;irrigation&quot;</span>,<span class="st">&quot;variety&quot;</span>), mod)
+<span class="kw">plot</span>(e)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+</div>
+</div>
+<div id="split-plot" class="section level2">
+<h2><span class="header-section-number">16.4</span> Split plot</h2>
+<p>In all the previous examples there have been alternatives available to the use of mixed models with random and fixed effects. In the case of situations involving sub sampling the dependence between sub samples can be dealt with by taking means for each experimental unit. In the cases in which variability occurs between blocks it is possible to include blocks in a model as a fixed effect. Repeat measures designs can use differences within subjects as responses. However there are some more complex situations in which the sum of squares attributed to the variability attributed to different treatments should be compared with different error terms. A classic example is the split plot design in agriculture. The split plot design arose simply as a form of reducing the cost and difficulty of setting up field experiments. When treating field plots it can sometimes be much easier to set up some treatments for larger areas than a smaller one. Imagine the case in the yield experiment we have been looking at in which whole fields are planted with single varieties of wheat and each field is split into two forms of irrigation treatment.</p>
+<div class="figure">
+<img src="figures/Split.png" />
+
+</div>
+<p>In some respects you could argue that not much has changed from the block design. However if each main field has a different response then the error term for variety will have fewer degrees of freedom than that for irrigation as the same variety has been planted in each field which is then “split” into two levels of irrigation. So effectively there is less independent replication of variety than of irrigation.</p>
+<p>If this is not taken into account there may be an accusation of “pseudo replication” with respect to the effect of variety as the anlysis would potentially treat all subplots as independent replicates without taking into account the fact that they are nested within field. However this is a problem if there are shared effects at the field level. If it were possible to ensure as much independence between subplots within the same field as between subplots as a whole it wouldn’t matter.</p>
+<p>Here is a dataframe with results from the split plot experiment shown above.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;https://tinyurl.com/aqm-data/split_plot.csv&quot;</span>)
+<span class="kw">str</span>(d)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    24 obs. of  5 variables:
+##  $ variety     : Factor w/ 2 levels &quot;v1&quot;,&quot;v2&quot;: 1 1 2 2 1 1 2 2 1 1 ...
+##  $ field       : Factor w/ 12 levels &quot;field_1&quot;,&quot;field_10&quot;,..: 1 1 5 5 6 6 7 7 8 8 ...
+##  $ field_effect: num  -2.506 -2.506 0.735 0.735 -3.343 ...
+##  $ irrigation  : Factor w/ 2 levels &quot;i1&quot;,&quot;i2&quot;: 1 2 1 2 1 2 1 2 1 2 ...
+##  $ yield       : num  6.25 8.06 17.98 20.64 6.63 ...</code></pre>
+<div id="visualising-the-data-2" class="section level3">
+<h3><span class="header-section-number">16.4.1</span> Visualising the data</h3>
+<p>We can look at the data as boxplots.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-<span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x=</span>irrigation,<span class="dt">y=</span>yield))
+g0<span class="op">+</span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1&lt;-g0<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>)
+g1&lt;-<span class="st"> </span>g1<span class="op">+</span><span class="kw">stat_summary</span>(<span class="dt">fun.data=</span>mean_cl_normal,<span class="dt">geom=</span><span class="st">&quot;errorbar&quot;</span>,<span class="dt">colour=</span><span class="st">&quot;black&quot;</span>)
+g1<span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>variety)</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+</div>
+<div id="incorrect-model" class="section level3">
+<h3><span class="header-section-number">16.4.2</span> Incorrect model</h3>
+<p>The naive way of analysing the data would overlook the potential for a field effect.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lm</span>(yield<span class="op">~</span>variety<span class="op">*</span>irrigation,<span class="dt">data=</span>d)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##                    Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## variety             1 141.55 141.550  7.5656 0.01233 *
+## irrigation          1  93.88  93.875  5.0175 0.03661 *
+## variety:irrigation  1   3.06   3.059  0.1635 0.69027  
+## Residuals          20 374.19  18.710                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="correct-model" class="section level3">
+<h3><span class="header-section-number">16.4.3</span> Correct model</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">lmer</span>(yield<span class="op">~</span>variety<span class="op">*</span>irrigation<span class="op">+</span>(<span class="dv">1</span><span class="op">|</span>field),<span class="dt">data=</span>d)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Type III Analysis of Variance Table with Satterthwaite&#39;s method
+##                    Sum Sq Mean Sq NumDF DenDF F value    Pr(&gt;F)    
+## variety             8.503   8.503     1    10  4.0100   0.07308 .  
+## irrigation         93.875  93.875     1    10 44.2701 5.684e-05 ***
+## variety:irrigation  3.059   3.059     1    10  1.4424   0.25743    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: yield ~ variety * irrigation + (1 | field)
+##    Data: d
+## 
+## REML criterion at convergence: 107.1
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -1.31217 -0.32739  0.08055  0.44805  1.21676 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev.
+##  field    (Intercept) 16.589   4.073   
+##  Residual              2.121   1.456   
+## Number of obs: 24, groups:  field, 12
+## 
+## Fixed effects:
+##                        Estimate Std. Error      df t value Pr(&gt;|t|)    
+## (Intercept)             11.2319     1.7659 11.1971   6.361 4.95e-05 ***
+## varietyv2                5.5711     2.4973 11.1971   2.231 0.047051 *  
+## irrigationi2             4.6695     0.8407 10.0000   5.554 0.000243 ***
+## varietyv2:irrigationi2  -1.4279     1.1890 10.0000  -1.201 0.257430    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##             (Intr) vrtyv2 irrgt2
+## varietyv2   -0.707              
+## irrigation2 -0.238  0.168       
+## vrtyv2:rrg2  0.168 -0.238 -0.707</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">12</span>,<span class="dv">4</span>,<span class="dv">2</span>)) 
+<span class="kw">plot</span>(<span class="kw">glht</span>(mod))</code></pre></div>
+<p><img src="008_experimental_design_2_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod&lt;-<span class="kw">aov</span>(yield<span class="op">~</span>variety<span class="op">*</span>irrigation<span class="op">+</span><span class="kw">Error</span>(field),<span class="dt">data=</span>d)
+<span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## 
+## Error: field
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## variety    1  141.5   141.6    4.01 0.0731 .
+## Residuals 10  353.0    35.3                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Error: Within
+##                    Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## irrigation          1  93.88   93.88  44.270 5.68e-05 ***
+## variety:irrigation  1   3.06    3.06   1.442    0.257    
+## Residuals          10  21.21    2.12                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="repeat-measures-designs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="generalised-linear-models-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["AQM_book.pdf", "AQM_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
