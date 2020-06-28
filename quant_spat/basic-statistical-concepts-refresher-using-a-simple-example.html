@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 6 Basic statistical concepts. Refresher using a simple example | Quantitative and spatial analysis</title>
+  <meta name="description" content="Chapter 6 Basic statistical concepts. Refresher using a simple example | Quantitative and spatial analysis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 6 Basic statistical concepts. Refresher using a simple example | Quantitative and spatial analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Basic statistical concepts. Refresher using a simple example | Quantitative and spatial analysis" />
+  
+  
+  
+
+<meta name="author" content="Duncan Golicher">
+
+
+<meta name="date" content="2019-12-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction-to-the-rstudio-server.html">
+<link rel="next" href="confidence-intervals-for-univariate-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="libs/jszip-1.10.16/jszip.min.js"></script>
+<link href="libs/dt-ext-buttons-1.10.16/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.16/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.1.17/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.2/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<link href="libs/PopupTable-0.0.1/popup.css" rel="stylesheet" />
+<link href="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.css" rel="stylesheet" />
+<script src="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.js"></script>
+<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
+<link href="libs/lfx-measure-path-1.3.1/lfx-measure-path-prod.css" rel="stylesheet" />
+<script src="libs/lfx-measure-path-1.3.1/lfx-measure-path-prod.js"></script>
+<script src="libs/lfx-measure-path-1.3.1/lfx-measure-path-bindings.js"></script>
+<link href="libs/leaflet-easybutton-1.3.1/easy-button.css" rel="stylesheet" />
+<script src="libs/leaflet-easybutton-1.3.1/easy-button.js"></script>
+<script src="libs/leaflet-easybutton-1.3.1/EasyButton-binding.js"></script>
+<link href="libs/ionicons-2.0.1/ionicons.min.css" rel="stylesheet" />
+<link href="libs/leaflet-measure-2.1.7/leaflet-measure.css" rel="stylesheet" />
+<script src="libs/leaflet-measure-2.1.7/leaflet-measure.min.js"></script>
+<script src="libs/aspect-1/data_stars_aspecte26b50.txt"></script>
+<script src="libs/joda-0.0.1/joda.js"></script>
+<script src="libs/dtm-1/data_stars_dtm1cb720.txt"></script>
+<script src="libs/fuse_js-3.2.0/fuse_js-prod.js"></script>
+<link href="libs/lfx-search-2.3.7/lfx-search-prod.css" rel="stylesheet" />
+<script src="libs/lfx-search-2.3.7/lfx-search-prod.js"></script>
+<script src="libs/lfx-search-2.3.7/lfx-search-bindings.js"></script>
+<script src="libs/dsm-1/data_stars_dsm4d7328.txt"></script>
+<script src="libs/chm10-1/data_stars_chm1086d415.txt"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative and spatial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html"><i class="fa fa-check"></i><b>1</b> Introduction to GIS</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#what-is-a-gis"><i class="fa fa-check"></i><b>1.1</b> What is a GIS?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#desktop-gis"><i class="fa fa-check"></i><b>1.2</b> Desktop GIS</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#some-key-gis-concept"><i class="fa fa-check"></i><b>1.3</b> Some key GIS concept</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#coordinate-reference-systems-and-projections."><i class="fa fa-check"></i><b>1.3.1</b> Coordinate reference systems and projections.</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#raster-vs-vector-data"><i class="fa fa-check"></i><b>1.3.2</b> Raster vs vector data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#making-your-own-maps"><i class="fa fa-check"></i><b>1.4</b> Making your own maps</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#the-qgis-interface"><i class="fa fa-check"></i><b>1.4.1</b> The QGIS interface</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#qgis-gui"><i class="fa fa-check"></i><b>1.4.2</b> QGIS GUI</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#adding-base-maps"><i class="fa fa-check"></i><b>1.4.3</b> Adding base maps</a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#loading-a-base-map"><i class="fa fa-check"></i><b>1.4.4</b> Loading a base map</a></li>
+<li class="chapter" data-level="1.4.5" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#saving-projects-and-files"><i class="fa fa-check"></i><b>1.4.5</b> Saving projects and files</a></li>
+<li class="chapter" data-level="1.4.6" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#adding-a-wcs-raster-layer-from-the-local-geoserver"><i class="fa fa-check"></i><b>1.4.6</b> Adding a WCS raster layer from the local Geoserver</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#raster-terrain-data"><i class="fa fa-check"></i><b>1.5</b> Raster terrain data</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#vector-data-from-the-wfs-service"><i class="fa fa-check"></i><b>1.6</b> Vector data from the WFS service</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#saving-layers-locally-for-processing-and-offline-use"><i class="fa fa-check"></i><b>1.7</b> Saving layers locally for processing and offline use</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html"><i class="fa fa-check"></i><b>2</b> On screen digitising</a><ul>
+<li class="chapter" data-level="2.1" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#digitising-tool-bar"><i class="fa fa-check"></i><b>2.1</b> Digitising tool bar</a></li>
+<li class="chapter" data-level="2.2" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#drawing-a-polygon"><i class="fa fa-check"></i><b>2.2</b> Drawing a polygon</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#valid-and-invalid-geometries"><i class="fa fa-check"></i><b>2.2.1</b> Valid and invalid geometries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#saving-the-polygon"><i class="fa fa-check"></i><b>2.3</b> Saving the polygon</a></li>
+<li class="chapter" data-level="2.4" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#snapping"><i class="fa fa-check"></i><b>2.4</b> Snapping</a></li>
+<li class="chapter" data-level="2.5" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#avoiding-intersections"><i class="fa fa-check"></i><b>2.5</b> Avoiding intersections</a></li>
+<li class="chapter" data-level="2.6" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#splitting-on-paths"><i class="fa fa-check"></i><b>2.6</b> Splitting on paths</a></li>
+<li class="chapter" data-level="2.7" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html"><i class="fa fa-check"></i><b>3</b> Styling and cartography</a><ul>
+<li class="chapter" data-level="3.1" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#using-a-prebuilt-style"><i class="fa fa-check"></i><b>3.2</b> Using a prebuilt style</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#finding-the-styling-dialogue"><i class="fa fa-check"></i><b>3.2.1</b> Finding the styling dialogue</a></li>
+<li class="chapter" data-level="3.2.2" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#loading-the-style-sheet-colour-scheme-for-the-polygons."><i class="fa fa-check"></i><b>3.2.2</b> Loading the style sheet colour scheme for the polygons.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#filtering-the-visible-styles"><i class="fa fa-check"></i><b>3.2.3</b> Filtering the visible styles</a></li>
+<li class="chapter" data-level="3.2.4" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#copying-and-pasting-styles"><i class="fa fa-check"></i><b>3.2.4</b> Copying and pasting styles</a></li>
+<li class="chapter" data-level="3.2.5" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#adding-derived-attributes"><i class="fa fa-check"></i><b>3.2.5</b> Adding derived attributes</a></li>
+<li class="chapter" data-level="3.2.6" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#cartography-designing-a-prinatable-map"><i class="fa fa-check"></i><b>3.2.6</b> Cartography: Designing a prinatable map</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="terrain-analysis.html"><a href="terrain-analysis.html"><i class="fa fa-check"></i><b>4</b> Terrain analysis</a><ul>
+<li class="chapter" data-level="4.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#what-is-terrain-analysis"><i class="fa fa-check"></i><b>4.1</b> What is terrain analysis</a></li>
+<li class="chapter" data-level="4.2" data-path="terrain-analysis.html"><a href="terrain-analysis.html#lidar-data"><i class="fa fa-check"></i><b>4.2</b> Lidar data</a></li>
+<li class="chapter" data-level="4.3" data-path="terrain-analysis.html"><a href="terrain-analysis.html#working-with-lidar-data-in-qgis"><i class="fa fa-check"></i><b>4.3</b> Working with Lidar data in QGIS</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#analytical-hill-shading"><i class="fa fa-check"></i><b>4.3.1</b> Analytical hill shading</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="terrain-analysis.html"><a href="terrain-analysis.html#colouring-the-dtm"><i class="fa fa-check"></i><b>4.4</b> Colouring the DTM</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#adding-contour-lines"><i class="fa fa-check"></i><b>4.4.1</b> Adding contour lines</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="terrain-analysis.html"><a href="terrain-analysis.html#calculating-slope-and-aspect"><i class="fa fa-check"></i><b>4.5</b> Calculating slope and aspect</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#slope"><i class="fa fa-check"></i><b>4.5.1</b> Slope</a></li>
+<li class="chapter" data-level="4.5.2" data-path="terrain-analysis.html"><a href="terrain-analysis.html#aspect"><i class="fa fa-check"></i><b>4.5.2</b> Aspect</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="terrain-analysis.html"><a href="terrain-analysis.html#calculating-canopy-height."><i class="fa fa-check"></i><b>4.6</b> Calculating canopy height.</a></li>
+<li class="chapter" data-level="4.7" data-path="terrain-analysis.html"><a href="terrain-analysis.html#investigating-canopy-height-in-3d"><i class="fa fa-check"></i><b>4.7</b> Investigating canopy height in 3D</a></li>
+<li class="chapter" data-level="4.8" data-path="terrain-analysis.html"><a href="terrain-analysis.html#calculating-raster-stats-for-polygons."><i class="fa fa-check"></i><b>4.8</b> Calculating raster stats for polygons.</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html"><i class="fa fa-check"></i><b>5</b> Introduction to the RStudio Server</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#getting-started-with-the-rstudio-server"><i class="fa fa-check"></i><b>5.2</b> Getting started with the RStudio server</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-log-into-the-rstudio-server"><i class="fa fa-check"></i><b>5.2.1</b> Action: Log into the RStudio server</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#rstudio-server-concepts"><i class="fa fa-check"></i><b>5.3</b> RStudio server concepts</a></li>
+<li class="chapter" data-level="5.4" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#finding-your-way-around-the-interface"><i class="fa fa-check"></i><b>5.4</b> Finding your way around the interface</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#using-projects-in-rstudio"><i class="fa fa-check"></i><b>5.4.1</b> Using projects in RStudio</a></li>
+<li class="chapter" data-level="5.4.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-form-a-new-project-and-add-a-new-folder"><i class="fa fa-check"></i><b>5.4.2</b> Action: Form a new project and add a new folder</a></li>
+<li class="chapter" data-level="5.4.3" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#using-the-console"><i class="fa fa-check"></i><b>5.4.3</b> Using the console</a></li>
+<li class="chapter" data-level="5.4.4" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-make-a-data-object-vector-in-r"><i class="fa fa-check"></i><b>5.4.4</b> Action: Make a data object (vector) in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#data-abstraction-and-data-visualisation"><i class="fa fa-check"></i><b>5.5</b> Data abstraction and data visualisation</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-visualise-the-data-using-a-simple-histogram"><i class="fa fa-check"></i><b>5.5.1</b> Action: Visualise the data using a simple histogram</a></li>
+<li class="chapter" data-level="5.5.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-close-the-project"><i class="fa fa-check"></i><b>5.5.2</b> Action: Close the project</a></li>
+<li class="chapter" data-level="5.5.3" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-restore-the-project"><i class="fa fa-check"></i><b>5.5.3</b> Action: Restore the project</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#working-with-markdown-documents."><i class="fa fa-check"></i><b>5.6</b> Working with markdown documents.</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-produce-a-default-markdown-document."><i class="fa fa-check"></i><b>5.6.1</b> Action: Produce a default markdown document.</a></li>
+<li class="chapter" data-level="5.6.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-clean-out-rinse-and-repeat-for-practice-sake"><i class="fa fa-check"></i><b>5.6.2</b> Action: Clean out, rinse and repeat, for practice sake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#conclusion"><i class="fa fa-check"></i><b>5.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html"><i class="fa fa-check"></i><b>6</b> Basic statistical concepts. Refresher using a simple example</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#getting-some-data"><i class="fa fa-check"></i><b>6.0.1</b> Getting some data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-get-some-personal-data"><i class="fa fa-check"></i><b>6.0.2</b> Action: Get some personal data</a></li>
+<li class="chapter" data-level="6.0.3" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-summarise-the-class-data"><i class="fa fa-check"></i><b>6.0.3</b> Action: Summarise the class data</a></li>
+<li class="chapter" data-level="6.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#inferential-statistics"><i class="fa fa-check"></i><b>6.1</b> Inferential statistics</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-calculate-the-standard-deviation-by-hand"><i class="fa fa-check"></i><b>6.1.1</b> Action: Calculate the standard deviation “by hand”</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#calcuate-the-standard-error-of-the-mean."><i class="fa fa-check"></i><b>6.2</b> Calcuate the standard error of the mean.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-calculate-the-standard-error-and-95-confidence-interval-for-the-mean"><i class="fa fa-check"></i><b>6.2.1</b> Action: Calculate the standard error and 95% confidence interval for the mean</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#test-whether-the-statistics-work"><i class="fa fa-check"></i><b>6.3</b> Test whether the statistics “work”</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-rinse-and-repeat."><i class="fa fa-check"></i><b>6.3.1</b> Action: Rinse and repeat.</a></li>
+<li class="chapter" data-level="6.3.2" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#conclusion-1"><i class="fa fa-check"></i><b>6.3.2</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#planning-an-analysis"><i class="fa fa-check"></i><b>6.4</b> Planning an analysis</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#understanding-your-data-before-you-start-colllecting-them"><i class="fa fa-check"></i><b>6.4.1</b> Understanding your data before you start colllecting them</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#quantitative-analysis"><i class="fa fa-check"></i><b>6.5</b> Quantitative analysis</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#what-does-quantitative-data-consist-of"><i class="fa fa-check"></i><b>6.6</b> What does quantitative data consist of?</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#data-visualisation-vs-statistical-analysis"><i class="fa fa-check"></i><b>6.7</b> Data visualisation vs statistical analysis</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#a-simple-example"><i class="fa fa-check"></i><b>6.8</b> A simple example</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#graphical-data-analysis"><i class="fa fa-check"></i><b>6.9</b> Graphical data analysis</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#forming-a-plot-in-r"><i class="fa fa-check"></i><b>6.10</b> Forming a plot in R</a></li>
+<li class="chapter" data-level="6.11" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#a-more-complex-time-series"><i class="fa fa-check"></i><b>6.11</b> A more complex time series</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#some-high-level-code-to-break-down-the-data"><i class="fa fa-check"></i><b>6.12</b> Some high level code to break down the data</a></li>
+<li class="chapter" data-level="6.13" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#inferential-statistics-1"><i class="fa fa-check"></i><b>6.13</b> Inferential statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html"><i class="fa fa-check"></i><b>7</b> Confidence intervals for univariate data</a><ul>
+<li class="chapter" data-level="7.1" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#reminder-basic-statistics"><i class="fa fa-check"></i><b>7.2</b> Reminder: Basic statistics</a></li>
+<li class="chapter" data-level="7.3" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>7.3</b> Measures of central tendency</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#measures-of-variability"><i class="fa fa-check"></i><b>7.3.1</b> Measures of variability</a></li>
+<li class="chapter" data-level="7.3.2" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#the-normal-distribution"><i class="fa fa-check"></i><b>7.3.2</b> The normal distribution</a></li>
+<li class="chapter" data-level="7.3.3" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#checking-data-properties-with-figures"><i class="fa fa-check"></i><b>7.3.3</b> Checking data properties with figures</a></li>
+<li class="chapter" data-level="7.3.4" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#calculating-the-standard-error"><i class="fa fa-check"></i><b>7.3.4</b> Calculating the standard error</a></li>
+<li class="chapter" data-level="7.3.5" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#the-sampling-distribution-of-the-mean"><i class="fa fa-check"></i><b>7.3.5</b> The sampling distribution of the mean</a></li>
+<li class="chapter" data-level="7.3.6" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#calculating-confidence-intervals"><i class="fa fa-check"></i><b>7.3.6</b> Calculating confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#conclusion-and-take-home-messages"><i class="fa fa-check"></i><b>7.4</b> Conclusion and take home messages</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html"><i class="fa fa-check"></i><b>8</b> Using figures to understand and present data</a><ul>
+<li class="chapter" data-level="8.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#quick-exploratory-plots"><i class="fa fa-check"></i><b>8.1</b> Quick exploratory plots</a></li>
+<li class="chapter" data-level="8.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#introduction-to-grammar-of-graphics-plots"><i class="fa fa-check"></i><b>8.2</b> Introduction to grammar of graphics plots</a></li>
+<li class="chapter" data-level="8.3" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#simple-bar-charts"><i class="fa fa-check"></i><b>8.3</b> Simple bar charts</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#exercise-3"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#simple-line-charts"><i class="fa fa-check"></i><b>8.4</b> Simple Line charts</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#exercise-4"><i class="fa fa-check"></i><b>8.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#histograms"><i class="fa fa-check"></i><b>8.5</b> Histograms</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#default-histogram"><i class="fa fa-check"></i><b>8.5.1</b> Default histogram</a></li>
+<li class="chapter" data-level="8.5.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#facet-wrapping"><i class="fa fa-check"></i><b>8.5.2</b> Facet wrapping</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#boxplots"><i class="fa fa-check"></i><b>8.6</b> Boxplots</a></li>
+<li class="chapter" data-level="8.7" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#confidence-interval-plots"><i class="fa fa-check"></i><b>8.7</b> Confidence interval plots</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#dynamite-plots-dont-use"><i class="fa fa-check"></i><b>8.7.1</b> Dynamite plots (Don’t use!)</a></li>
+<li class="chapter" data-level="8.7.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#inference-on-medians"><i class="fa fa-check"></i><b>8.7.2</b> Inference on medians</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#scatterplots"><i class="fa fa-check"></i><b>8.8</b> Scatterplots</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#adding-a-regression-line"><i class="fa fa-check"></i><b>8.8.1</b> Adding a regression line</a></li>
+<li class="chapter" data-level="8.8.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#grouping-and-conditioning"><i class="fa fa-check"></i><b>8.8.2</b> Grouping and conditioning</a></li>
+<li class="chapter" data-level="8.8.3" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#curvilinear-relationships"><i class="fa fa-check"></i><b>8.8.3</b> Curvilinear relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#generalised-linear-models"><i class="fa fa-check"></i><b>8.9</b> Generalised linear models</a></li>
+<li class="chapter" data-level="8.10" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#binomial-data"><i class="fa fa-check"></i><b>8.10</b> Binomial data</a></li>
+<li class="chapter" data-level="8.11" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#learning-more-about-ggplots"><i class="fa fa-check"></i><b>8.11</b> Learning more about ggplots</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html"><i class="fa fa-check"></i><b>9</b> T tests and hypothesis testing</a><ul>
+<li class="chapter" data-level="9.1" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#statistical-hypothesis-testing"><i class="fa fa-check"></i><b>9.1</b> Statistical hypothesis testing</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#the-unpaired-t-test"><i class="fa fa-check"></i><b>9.1.1</b> The unpaired t-test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#the-t-statistic"><i class="fa fa-check"></i><b>9.1.2</b> The t-statistic</a></li>
+<li class="chapter" data-level="9.1.3" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#interpretation-of-a-p-value"><i class="fa fa-check"></i><b>9.1.3</b> Interpretation of a p-value</a></li>
+<li class="chapter" data-level="9.1.4" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.1.4</b> Tests and confidence intervals</a></li>
+<li class="chapter" data-level="9.1.5" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#using-hypothesis-tests-wisely"><i class="fa fa-check"></i><b>9.1.5</b> Using hypothesis tests wisely</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html"><i class="fa fa-check"></i><b>10</b> Introduction to one way ANOVA</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#multiple-comparisons"><i class="fa fa-check"></i><b>10.0.1</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="10.0.2" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#visualising-between-group-variation-using-boxplots"><i class="fa fa-check"></i><b>10.0.2</b> Visualising between group variation using boxplots</a></li>
+<li class="chapter" data-level="10.0.3" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#boxplot-statistics"><i class="fa fa-check"></i><b>10.0.3</b> Boxplot statistics</a></li>
+<li class="chapter" data-level="10.0.4" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#plotting-confidence-intervals-for-each-group"><i class="fa fa-check"></i><b>10.0.4</b> Plotting confidence intervals for each group</a></li>
+<li class="chapter" data-level="10.0.5" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#fitting-a-model"><i class="fa fa-check"></i><b>10.0.5</b> Fitting a model</a></li>
+<li class="chapter" data-level="10.0.6" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#the-f-ratio-and-degrees-of-freedom"><i class="fa fa-check"></i><b>10.0.6</b> The F ratio and degrees of freedom</a></li>
+<li class="chapter" data-level="10.0.7" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>10.0.7</b> Homogeneity of variance</a></li>
+<li class="chapter" data-level="10.1" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#alternative-to-the-one-way-test"><i class="fa fa-check"></i><b>10.1</b> Alternative to the one way test</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#determining-where-the-differences-lie"><i class="fa fa-check"></i><b>10.1.1</b> Determining where the differences lie</a></li>
+<li class="chapter" data-level="10.1.2" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#bonferoni-corrections"><i class="fa fa-check"></i><b>10.1.2</b> Bonferoni corrections</a></li>
+<li class="chapter" data-level="10.1.3" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#tukeys-honest-significant-difference"><i class="fa fa-check"></i><b>10.1.3</b> Tukey’s honest significant difference</a></li>
+<li class="chapter" data-level="10.1.4" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#the-kruskal-wallace-non-parametric-test."><i class="fa fa-check"></i><b>10.1.4</b> The Kruskal Wallace non parametric test.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#power-analysis"><i class="fa fa-check"></i><b>10.2</b> Power analysis</a></li>
+<li class="chapter" data-level="10.3" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#exercise-5"><i class="fa fa-check"></i><b>10.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.4" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#references"><i class="fa fa-check"></i><b>10.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html"><i class="fa fa-check"></i><b>11</b> Regression as a statistical modelling</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#uses-of-models"><i class="fa fa-check"></i><b>11.0.1</b> Uses of models</a></li>
+<li class="chapter" data-level="11.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#the-general-linear-model"><i class="fa fa-check"></i><b>11.1</b> The general linear model</a></li>
+<li class="chapter" data-level="11.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#regression"><i class="fa fa-check"></i><b>11.2</b> Regression</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#theory"><i class="fa fa-check"></i><b>11.2.1</b> Theory</a></li>
+<li class="chapter" data-level="11.2.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#example"><i class="fa fa-check"></i><b>11.2.2</b> Example</a></li>
+<li class="chapter" data-level="11.2.3" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#confidence-intervals"><i class="fa fa-check"></i><b>11.2.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="11.2.4" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#prediction-1"><i class="fa fa-check"></i><b>11.2.4</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#using-ggplot2-for-confidence-intervals."><i class="fa fa-check"></i><b>11.3</b> Using ggplot2 for confidence intervals.</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#prediction-intervals"><i class="fa fa-check"></i><b>11.3.1</b> Prediction intervals</a></li>
+<li class="chapter" data-level="11.3.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#diagnostics"><i class="fa fa-check"></i><b>11.3.2</b> Diagnostics</a></li>
+<li class="chapter" data-level="11.3.3" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#lack-of-independence"><i class="fa fa-check"></i><b>11.3.3</b> Lack of independence</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#where-do-the-sum-of-squares-come-from"><i class="fa fa-check"></i><b>11.4</b> Where do the sum of squares come from?</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#regression-1"><i class="fa fa-check"></i><b>11.4.1</b> Regression</a></li>
+<li class="chapter" data-level="11.4.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#residuals"><i class="fa fa-check"></i><b>11.4.2</b> Residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#where-does-r-squared-coefficient-of-determination-come-from"><i class="fa fa-check"></i><b>11.5</b> Where does R squared (coefficient of determination) come from?</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#violations-of-assumptions"><i class="fa fa-check"></i><b>11.5.1</b> Violations of assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="advice-on-regression.html"><a href="advice-on-regression.html"><i class="fa fa-check"></i><b>12</b> Advice on regression</a><ul>
+<li class="chapter" data-level="12.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#introduction-3"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
+<li class="chapter" data-level="12.2" data-path="advice-on-regression.html"><a href="advice-on-regression.html#predictive-modelling-calibration"><i class="fa fa-check"></i><b>12.2</b> Predictive modelling: Calibration</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up"><i class="fa fa-check"></i><b>12.2.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="advice-on-regression.html"><a href="advice-on-regression.html#explanatory-modelling"><i class="fa fa-check"></i><b>12.3</b> Explanatory modelling:</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-1"><i class="fa fa-check"></i><b>12.3.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="advice-on-regression.html"><a href="advice-on-regression.html#testing-for-a-relationship"><i class="fa fa-check"></i><b>12.4</b> Testing for a relationship</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-2"><i class="fa fa-check"></i><b>12.4.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="advice-on-regression.html"><a href="advice-on-regression.html#diagnostics-show-assumptions-not-met"><i class="fa fa-check"></i><b>12.5</b> Diagnostics show assumptions not met</a></li>
+<li class="chapter" data-level="12.6" data-path="advice-on-regression.html"><a href="advice-on-regression.html#skewed-independent-variable"><i class="fa fa-check"></i><b>12.6</b> Skewed independent variable</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-3"><i class="fa fa-check"></i><b>12.6.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="advice-on-regression.html"><a href="advice-on-regression.html#spearmans-rank-correlation"><i class="fa fa-check"></i><b>12.7</b> Spearman’s rank correlation</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#taking-ranks"><i class="fa fa-check"></i><b>12.7.1</b> Taking ranks</a></li>
+<li class="chapter" data-level="12.7.2" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-4"><i class="fa fa-check"></i><b>12.7.2</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="advice-on-regression.html"><a href="advice-on-regression.html#non-linear-response"><i class="fa fa-check"></i><b>12.8</b> Non linear response</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-5"><i class="fa fa-check"></i><b>12.8.1</b> Advice on writing up</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html"><i class="fa fa-check"></i><b>13</b> Crib sheet for regression and ANOVA</a><ul>
+<li class="chapter" data-level="13.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#introduction-4"><i class="fa fa-check"></i><b>13.1</b> Introduction</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#packages-needed"><i class="fa fa-check"></i><b>13.1.1</b> Packages needed</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#loading-the-data"><i class="fa fa-check"></i><b>13.2</b> Loading the data</a></li>
+<li class="chapter" data-level="13.3" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#finding-out-about-the-data"><i class="fa fa-check"></i><b>13.3</b> Finding out about the data</a></li>
+<li class="chapter" data-level="13.4" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#making-your-data-available-to-others"><i class="fa fa-check"></i><b>13.4</b> Making your data available to others</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#note-this-only-works-as-an-html-document"><i class="fa fa-check"></i><b>13.4.1</b> NOTE THIS ONLY WORKS AS AN HTML DOCUMENT</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#subsetting"><i class="fa fa-check"></i><b>13.5</b> Subsetting</a></li>
+<li class="chapter" data-level="13.6" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#data-summaries-for-individual-variables"><i class="fa fa-check"></i><b>13.6</b> Data summaries for individual variables</a></li>
+<li class="chapter" data-level="13.7" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#individual-statistics-for-a-single-variable"><i class="fa fa-check"></i><b>13.7</b> Individual statistics for a single variable</a></li>
+<li class="chapter" data-level="13.8" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#simple-boxplot-of-one-variable"><i class="fa fa-check"></i><b>13.8</b> Simple boxplot of one variable</a></li>
+<li class="chapter" data-level="13.9" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#simple-histogram-of-one-variable"><i class="fa fa-check"></i><b>13.9</b> Simple histogram of one variable</a></li>
+<li class="chapter" data-level="13.10" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#neater-histogram-of-one-variable"><i class="fa fa-check"></i><b>13.10</b> Neater histogram of one variable</a></li>
+<li class="chapter" data-level="13.11" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#regression-2"><i class="fa fa-check"></i><b>13.11</b> Regression</a></li>
+<li class="chapter" data-level="13.12" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#scatterplot-without-fitted-line"><i class="fa fa-check"></i><b>13.12</b> Scatterplot without fitted line</a></li>
+<li class="chapter" data-level="13.13" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#scatterplot-with-fitted-line-and-labels"><i class="fa fa-check"></i><b>13.13</b> Scatterplot with fitted line and labels</a></li>
+<li class="chapter" data-level="13.14" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#fitting-a-model-1"><i class="fa fa-check"></i><b>13.14</b> Fitting a model</a></li>
+<li class="chapter" data-level="13.15" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#extracting-residuals"><i class="fa fa-check"></i><b>13.15</b> Extracting residuals</a></li>
+<li class="chapter" data-level="13.16" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#model-summary"><i class="fa fa-check"></i><b>13.16</b> Model summary</a></li>
+<li class="chapter" data-level="13.17" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#model-anova-table"><i class="fa fa-check"></i><b>13.17</b> Model anova table</a></li>
+<li class="chapter" data-level="13.18" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#confidence-intervals-for-the-model-parameters"><i class="fa fa-check"></i><b>13.18</b> Confidence intervals for the model parameters</a><ul>
+<li class="chapter" data-level="13.18.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#model-diagnostics"><i class="fa fa-check"></i><b>13.18.1</b> Model diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.19" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#spearmans-rank-correlation-1"><i class="fa fa-check"></i><b>13.19</b> Spearman’s rank correlation</a><ul>
+<li class="chapter" data-level="13.19.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#fitting-a-spline"><i class="fa fa-check"></i><b>13.19.1</b> Fitting a spline</a></li>
+</ul></li>
+<li class="chapter" data-level="13.20" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#one-way-anova"><i class="fa fa-check"></i><b>13.20</b> One way ANOVA</a><ul>
+<li class="chapter" data-level="13.20.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#grouped-boxplots"><i class="fa fa-check"></i><b>13.20.1</b> Grouped boxplots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.21" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#histograms-for-each-factor-level"><i class="fa fa-check"></i><b>13.21</b> Histograms for each factor level</a></li>
+<li class="chapter" data-level="13.22" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#confidence-interval-plot"><i class="fa fa-check"></i><b>13.22</b> Confidence interval plot</a></li>
+<li class="chapter" data-level="13.23" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#fitting-anova"><i class="fa fa-check"></i><b>13.23</b> Fitting ANOVA</a></li>
+<li class="chapter" data-level="13.24" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#tukey-corrected-pairwise-comparisons"><i class="fa fa-check"></i><b>13.24</b> Tukey corrected pairwise comparisons</a></li>
+<li class="chapter" data-level="13.25" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#anova-with-whites-correction"><i class="fa fa-check"></i><b>13.25</b> Anova with White’s correction</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html"><i class="fa fa-check"></i><b>14</b> Crib sheet for GIS in R</a><ul>
+<li class="chapter" data-level="14.1" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#introduction-5"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.2" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#reading-in-a-shapefile"><i class="fa fa-check"></i><b>14.2</b> Reading in a shapefile</a></li>
+<li class="chapter" data-level="14.3" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#transforming-to-british-national-grid"><i class="fa fa-check"></i><b>14.3</b> Transforming to British National Grid</a></li>
+<li class="chapter" data-level="14.4" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#mapview-of-a-polygon-layer"><i class="fa fa-check"></i><b>14.4</b> Mapview of a polygon layer</a></li>
+<li class="chapter" data-level="14.5" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#adding-an-overview-map"><i class="fa fa-check"></i><b>14.5</b> Adding an overview map</a></li>
+<li class="chapter" data-level="14.6" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#adding-a-measurement-tool"><i class="fa fa-check"></i><b>14.6</b> Adding a measurement tool</a></li>
+<li class="chapter" data-level="14.7" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#reading-in-points-from-a-csv"><i class="fa fa-check"></i><b>14.7</b> Reading in points from a CSV</a></li>
+<li class="chapter" data-level="14.8" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#reading-raster-data"><i class="fa fa-check"></i><b>14.8</b> Reading raster data</a></li>
+<li class="chapter" data-level="14.9" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#making-colour-ramps-for-raster-data"><i class="fa fa-check"></i><b>14.9</b> Making colour ramps for raster data</a></li>
+<li class="chapter" data-level="14.10" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#extracting-raster-values-for-points"><i class="fa fa-check"></i><b>14.10</b> Extracting raster values for points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="hengistbury.html"><a href="hengistbury.html"><i class="fa fa-check"></i><b>15</b> Hengistbury</a></li>
+<li class="chapter" data-level="16" data-path="arne-data-quick-load.html"><a href="arne-data-quick-load.html"><i class="fa fa-check"></i><b>16</b> Arne data quick load</a><ul>
+<li class="chapter" data-level="16.1" data-path="arne-data-quick-load.html"><a href="arne-data-quick-load.html#introduction-6"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="arne-2019.html"><a href="arne-2019.html"><i class="fa fa-check"></i><b>17</b> Arne 2019</a><ul>
+<li class="chapter" data-level="17.1" data-path="arne-2019.html"><a href="arne-2019.html#loading-the-waypoints"><i class="fa fa-check"></i><b>17.1</b> Loading the waypoints</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><i class="fa fa-check"></i><b>18</b> Regression analysis using measurements on individual pines from the Arne 2019 data</a><ul>
+<li class="chapter" data-level="18.1" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#introduction-7"><i class="fa fa-check"></i><b>18.1</b> Introduction</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#load-r-libraries"><i class="fa fa-check"></i><b>18.1.1</b> Load R libraries</a></li>
+<li class="chapter" data-level="18.1.2" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#load-the-data"><i class="fa fa-check"></i><b>18.1.2</b> Load the data</a></li>
+<li class="chapter" data-level="18.1.3" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#looking-at-the-data"><i class="fa fa-check"></i><b>18.1.3</b> Looking at the data</a></li>
+<li class="chapter" data-level="18.1.4" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#simple-base-r-figures"><i class="fa fa-check"></i><b>18.1.4</b> Simple base R figures</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#scatterplots-1"><i class="fa fa-check"></i><b>18.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="18.3" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#regression-vs-correlation-analysis"><i class="fa fa-check"></i><b>18.3</b> Regression vs correlation analysis</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#spline-and-line-analysis"><i class="fa fa-check"></i><b>18.3.1</b> Spline and line analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#fitting-a-regression"><i class="fa fa-check"></i><b>18.4</b> Fitting a regression</a></li>
+<li class="chapter" data-level="18.5" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#fitting-a-gam"><i class="fa fa-check"></i><b>18.5</b> Fitting a GAM</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><i class="fa fa-check"></i><b>19</b> Analysing the residuals from regression analysis on individual pines from the Arne 2019 data</a><ul>
+<li class="chapter" data-level="19.1" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#introduction-8"><i class="fa fa-check"></i><b>19.1</b> Introduction</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#load-r-libraries-1"><i class="fa fa-check"></i><b>19.1.1</b> Load R libraries</a></li>
+<li class="chapter" data-level="19.1.2" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#load-the-data-1"><i class="fa fa-check"></i><b>19.1.2</b> Load the data</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#adding-the-gps-points-to-the-pines"><i class="fa fa-check"></i><b>19.2</b> Adding the GPS points to the pines</a></li>
+<li class="chapter" data-level="19.3" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#looking-at-the-residual"><i class="fa fa-check"></i><b>19.3</b> Looking at the residual</a><ul>
+<li class="chapter" data-level="19.3.1" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#plotting-the-data-by-site"><i class="fa fa-check"></i><b>19.3.1</b> Plotting the data by site</a></li>
+<li class="chapter" data-level="19.3.2" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#obtaining-residuals"><i class="fa fa-check"></i><b>19.3.2</b> Obtaining residuals</a></li>
+<li class="chapter" data-level="19.3.3" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#plotting-the-residuals-by-site"><i class="fa fa-check"></i><b>19.3.3</b> Plotting the residuals by site</a></li>
+<li class="chapter" data-level="19.3.4" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#confidence-intervals-1"><i class="fa fa-check"></i><b>19.3.4</b> Confidence intervals</a></li>
+<li class="chapter" data-level="19.3.5" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#simple-unpaired-t-test"><i class="fa fa-check"></i><b>19.3.5</b> Simple unpaired t-test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html"><i class="fa fa-check"></i><b>20</b> Mapping and analysing pine densities at Arne</a><ul>
+<li class="chapter" data-level="20.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#introduction-9"><i class="fa fa-check"></i><b>20.1</b> Introduction</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#loading-libraries"><i class="fa fa-check"></i><b>20.1.1</b> Loading libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#loading-the-data-1"><i class="fa fa-check"></i><b>20.2</b> Loading the data</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#points-to-notice"><i class="fa fa-check"></i><b>20.2.1</b> Points to notice</a></li>
+<li class="chapter" data-level="20.2.2" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#making-a-spatial-object-in-r"><i class="fa fa-check"></i><b>20.2.2</b> Making a spatial object in R</a></li>
+<li class="chapter" data-level="20.2.3" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action"><i class="fa fa-check"></i><b>20.2.3</b> Action</a></li>
+<li class="chapter" data-level="20.2.4" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#comparing-density-in-the-heathland-and-restoration-site."><i class="fa fa-check"></i><b>20.2.4</b> Comparing density in the heathland and restoration site.</a></li>
+<li class="chapter" data-level="20.2.5" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#question-how-does-the-pine-density-differ-between-the-heathland-and-the-restoration-site"><i class="fa fa-check"></i><b>20.2.5</b> Question: How does the pine density differ between the heathland and the restoration site?</a></li>
+<li class="chapter" data-level="20.2.6" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#boxplot-of-pine-density"><i class="fa fa-check"></i><b>20.2.6</b> Boxplot of pine density</a></li>
+<li class="chapter" data-level="20.2.7" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action-1"><i class="fa fa-check"></i><b>20.2.7</b> Action</a></li>
+<li class="chapter" data-level="20.2.8" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#inferential-confidence-interval-plot"><i class="fa fa-check"></i><b>20.2.8</b> Inferential confidence interval plot</a></li>
+<li class="chapter" data-level="20.2.9" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action-2"><i class="fa fa-check"></i><b>20.2.9</b> Action</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#section"><i class="fa fa-check"></i><b>20.3</b> ——————————————————-</a></li>
+<li class="chapter" data-level="20.4" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#investigating-factors-affecting-pine-densities-on-the-heathland-site"><i class="fa fa-check"></i><b>20.4</b> Investigating factors affecting pine densities on the heathland site</a></li>
+<li class="chapter" data-level="20.5" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#spatial-data"><i class="fa fa-check"></i><b>20.5</b> Spatial data</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#cropping"><i class="fa fa-check"></i><b>20.5.1</b> Cropping</a></li>
+<li class="chapter" data-level="20.5.2" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#terrain-analysis-1"><i class="fa fa-check"></i><b>20.5.2</b> Terrain analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#raster-algebra"><i class="fa fa-check"></i><b>20.6</b> Raster algebra</a></li>
+<li class="chapter" data-level="20.7" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#raster-aggregation"><i class="fa fa-check"></i><b>20.7</b> Raster aggregation</a><ul>
+<li class="chapter" data-level="20.7.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action-3"><i class="fa fa-check"></i><b>20.7.1</b> Action</a></li>
+</ul></li>
+<li class="chapter" data-level="20.8" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#adding-the-values-to-the-quadrats"><i class="fa fa-check"></i><b>20.8</b> Adding the values to the quadrats</a></li>
+<li class="chapter" data-level="20.9" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#distances-to-trees"><i class="fa fa-check"></i><b>20.9</b> Distances to trees</a></li>
+<li class="chapter" data-level="20.10" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#data-table"><i class="fa fa-check"></i><b>20.10</b> Data table</a></li>
+<li class="chapter" data-level="20.11" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#writing-out-the-data"><i class="fa fa-check"></i><b>20.11</b> Writing out the data</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html"><i class="fa fa-check"></i><b>21</b> Statistical analysis of the pine density data</a><ul>
+<li class="chapter" data-level="21.1" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html#introduction-10"><i class="fa fa-check"></i><b>21.1</b> Introduction</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html#loading-libraries-1"><i class="fa fa-check"></i><b>21.1.1</b> Loading libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html#running-analyses"><i class="fa fa-check"></i><b>21.2</b> Running analyses</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative and spatial analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-statistical-concepts.-refresher-using-a-simple-example" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Basic statistical concepts. Refresher using a simple example</h1>
+<p>It may have been a while since you last learned about statistics. Statistical software now makes running the calculations themselves very easy. Although using R may seem rather challenging at first, it is really much faster to use R than to carry out statistics “by hand” or using non dedicated software such as Excel However the problem with using R for statistics is that many students concentrate attention on learning to use the software rather then remembering the concepts. In this class we will refresh the most basic ideas in statistics without using any software. We will then see how to use R to make life easier.</p>
+<div id="getting-some-data" class="section level3">
+<h3><span class="header-section-number">6.0.1</span> Getting some data</h3>
+<p>Let’s look at the reaction times on a simple test for the students in the class. Click on the link below. Run the test. After a “burn in” period to get used to the idea, record your own time in ten trials.</p>
+</div>
+<div id="action-get-some-personal-data" class="section level3">
+<h3><span class="header-section-number">6.0.2</span> Action: Get some personal data</h3>
+<ol style="list-style-type: decimal">
+<li>Click on the link, <a href="https://www.humanbenchmark.com/tests/reactiontime/" class="uri">https://www.humanbenchmark.com/tests/reactiontime/</a></li>
+<li>Try your reactions three times as a “burn in”</li>
+<li>Record ten trials and write down the times on a piece of paper.</li>
+<li>Calculate your mean reaction time using a calculator, a piece of paper or any other method. <strong>Hint: The mean is the sum of all the times divided by the number of trials</strong></li>
+<li>Write your own results on the white bowrd.</li>
+</ol>
+<p>Ok we now have some data from the class. We will now go a step further.</p>
+</div>
+<div id="action-summarise-the-class-data" class="section level3">
+<h3><span class="header-section-number">6.0.3</span> Action: Summarise the class data</h3>
+<ol style="list-style-type: decimal">
+<li>Find the maximum.</li>
+<li>FInd the minimum</li>
+<li>FInd the median reaction time. To do this, place the results in descending order. Find the number in the middle of the table. If there is an even number of results then average the two numbers at an equal distance from the top and the bottom.</li>
+<li>Find the mean reaction time for the class.</li>
+</ol>
+<p>These are basic descriptive statistics.</p>
+</div>
+<div id="inferential-statistics" class="section level2">
+<h2><span class="header-section-number">6.1</span> Inferential statistics</h2>
+<p>This part of the exercise is more subtle. We will spend a lot of time during the classes discussing the nature of statistical inference and the importance of testing assumptions. For the moment, let’s just do the maths.</p>
+<div id="action-calculate-the-standard-deviation-by-hand" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Action: Calculate the standard deviation “by hand”</h3>
+<ol style="list-style-type: decimal">
+<li>Subtract the mean reaction time from each observation to produce a table of differences from the mean. Some will be positive, others negative.</li>
+<li>Try adding all these differences together. What do you get? Why?</li>
+<li>Calculate the square of each difference.</li>
+<li>Add together all the squared differences to find the sum of the squares.</li>
+<li>Divide the sum of the squares by n-1 (where n is the number of observations)</li>
+<li>Take the square root of this number.</li>
+</ol>
+<p>Just out of interest <strong>You don’t have to follow this yet</strong>, the following R code does this operation “by hand”</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">440</span>,<span class="dv">340</span>,<span class="dv">350</span>,<span class="dv">456</span>,<span class="dv">470</span>) ## Five observations of reaction time
+
+x&lt;-data<span class="op">-</span><span class="kw">mean</span>(data)  <span class="co"># Subtract the mean from the data</span>
+x&lt;-x<span class="op">^</span><span class="dv">2</span>  <span class="co"># Square the results</span>
+x&lt;-<span class="kw">sum</span>(x)<span class="op">/</span><span class="dv">4</span>  <span class="co"># Divide by n.1 </span>
+<span class="kw">sqrt</span>(x) <span class="co"># Take the square root</span></code></pre></div>
+<pre><code>## [1] 61.45893</code></pre>
+<p>And again, just out of interest, statistical software does all this (and a lot more) with a simple function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(data)</code></pre></div>
+<pre><code>## [1] 61.45893</code></pre>
+</div>
+</div>
+<div id="calcuate-the-standard-error-of-the-mean." class="section level2">
+<h2><span class="header-section-number">6.2</span> Calcuate the standard error of the mean.</h2>
+<p>The standard errror of the mean is the standard deviation divided by the square root of the sample size. The 95% confidence interval for the mean is approximately two times the standard error.</p>
+<div id="action-calculate-the-standard-error-and-95-confidence-interval-for-the-mean" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Action: Calculate the standard error and 95% confidence interval for the mean</h3>
+<ol style="list-style-type: decimal">
+<li>Divide the standard deviation by the square root of the sample size.</li>
+<li>Multiply this by two.</li>
+<li>Provide a range by adding this number to the mean and subtracting it from the mean.</li>
+</ol>
+</div>
+</div>
+<div id="test-whether-the-statistics-work" class="section level2">
+<h2><span class="header-section-number">6.3</span> Test whether the statistics “work”</h2>
+<div id="action-rinse-and-repeat." class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Action: Rinse and repeat.</h3>
+<ol style="list-style-type: decimal">
+<li>Conduct the experiment again. This time just calculate the mean.</li>
+<li>Does the mean fall inside the confidence intervals you found?</li>
+<li>Discuss the results.</li>
+</ol>
+</div>
+<div id="conclusion-1" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Conclusion</h3>
+<p>There is a lot to discuss here. We will look at the nature of inferential statistics in more detail as we go on. Practice calculating standard deviations and standard errors “by hand” in order to get a feel for the process. Once you understand the calculations you can leave the rest to the computer. However you will have to understand the assumptions involved in calculating a standard error in order to apply statistics correctly. We will go thought this carefully later.</p>
+</div>
+</div>
+<div id="planning-an-analysis" class="section level2">
+<h2><span class="header-section-number">6.4</span> Planning an analysis</h2>
+<p>The steps for any successful research project which has a quantitative component are;</p>
+<ul>
+<li>Decide on one or more interesting and tractable scientific questions.</li>
+<li>Design an experiment or field survey that will produce data that addresses the question(s).</li>
+<li>Decide how the data you will collect relates to your scientific question(s). This step will involve re-framing some or all of the questions as statistical hypotheses and/or statistical models.</li>
+<li>Decide on the planned analysis that you wish to conduct on your data. These should effectively summarise key features, describe patterns, test hypotheses, establish associations between variables and/or estimate effect sizes and parameter values.</li>
+<li>Test your analysis carefully (preferably using dummy data and/or power analysis based on a small sample) to ensure that you know how to run them. Critically evaluate whether your field work is likely to provide suitable data (sufficiently replicated) in a suitable format. Make contingency plans and decide on alternative analysis in case data do not meet the assumptions needed for the planned analysis.</li>
+<li>Collect the full data set.</li>
+<li>Investigate the properties of the data you have collected in the light of the assumptions used in your analysis.</li>
+<li>Run the planned analysis (or the contingency analysis) and obtain the appropriate data summaries, test results, model output, tables and figures.</li>
+<li>Interpret and discuss the results.</li>
+</ul>
+<p>Although this course concentrates on the analytical component of this research sequence, the initial steps rely on knowledge of the specific system you are studying. Quantitative methods allows you to apply powerful computational tools to your own research, but these tools will only be effective if the right questions are formulated from the start. It is often stated that the best questions are the simplest because they lead easily into the formulation of clear hypotheses or models. This is good advice. However ecological research inevitably deals with complex systems involving multiple variables. The most appropriate analysis for MSc research projects can involve computational methods that go beyond the statistical tests found in introductory texts. Without a working knowledge of the available techniques it can be difficult to extract all the information from your data and link the results to the motivating questions.</p>
+<div id="understanding-your-data-before-you-start-colllecting-them" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Understanding your data before you start colllecting them</h3>
+<p>In a statistical text book aimed at undergraduates, Dytham (20014) makes the following suggestion.</p>
+<p>“Collect dummy data (i.e. make up approximate values based on what you expect to obtain). The collection of ‘dummy data’ may seem strange but it will convert the proposed experimental design or sampling routine into something more tangible. The process can often expose flaws or weaknesses in the data- collection routine that will save a huge amount of time and effort.”</p>
+<p>“I implore you to use this. I have seen countless students who have spent a long time and a lot of effort collecting data only to find that the experimental or sampling design was not quite right. The test they are forced to use is much less powerful than one they could have used with only a slight change in the experimental design. This sort experience tends to turn people away from statistics and become ‘scared’ of them. This is a great shame as statistics are a hugely useful and vital tool in science.”</p>
+<p>I completely agree with this author on this point. I have had exactly the same experience. Year after year I have been asked by students to help them analyse their data only to find that they did not plan the data collection with any particular analysis in mind. This never works. Not only is the analysis not likely to show much, but the data will rarely be structured in a manner that allows an analysis to be run at all! This leads to a pre-write up panic and post write-up anguish about what might have been.</p>
+<p>So, data collection and data analysis should be planned together. There is no realistic alternative. If you understand how an analysis works you will also understand what sort of data are needed to run it. As you are still learning the basics of quantitative ecology there is clearly something of a chicken and egg situation here. How can you know which analysis you are going to need if you still have not learned enough to choose from? This is a valid point. Nevertheless there are some simple concepts that you can use that avoid many problems later on.</p>
+<p>In addition to forming a “dummy” data set it is often possible to run some form of power analysis on a small subset of data collected as part of a pilot study. This can indicate how large a sample you may need in order to show statistically significant results. This step is often ignored, but it inmensely strengthens any research proposal and can also be used as a means of formally explaining why the data did not provide firm evidence in support of a scientific question even after the main study has been completed.</p>
+</div>
+</div>
+<div id="quantitative-analysis" class="section level2">
+<h2><span class="header-section-number">6.5</span> Quantitative analysis</h2>
+<p>Anyone carrying out research is keenly aware of the importance of quantitative analysis. However many students, and even some researchers, approach quantitative analysis with some trepidation. It is a vast and potentially complex field. The most common worry revolves around <em>statistics</em>. Frequently asked questions include “Which test should I choose for my data?” “How do I know that I have chosen the right test?” “What does the test tell me?” “How do I interpret the results?”</p>
+<p>There are all important questions to ask. However some of the worries about <em>statistics</em> may be the result of over emphaisising the word “test”. The most important question is in fact “how can I use <strong>all</strong> the data I have <strong>available</strong> to address a <strong>meaningful</strong> research question?” This may, or it may not, involve applying statistical tests. It almost certainly will involve visualising your data, either in the form of maps, figures or both. It will always involve getting to know the nature of your data in depth and communicating your knowledge to other people in a direct and meaningful manner. Sometimes statistical tests and models are absolutely essential. In other cases they may not be useful at all. Sometimes you may be able to select an appropriate analysis quite easily from a set of standard, commonly applied methods. In other cases you may need to seek expert advice from an experienced researcher ,or statistician, in order to extract the most from your data, avoid pitfalls and fully justify your conclusions. Sometimes a simple shaded map, or a few well chosen figures, may answer the research question directly. Sometimes that approach would just be dismissed as being “merely descriptive” in which case you would be expected to have applied much more sophisticated inferential statistics. It all depends on the nature of the research and the nature of the data at hand.</p>
+<p>In a single semester it is impossible to teach all the methods that may be needed in order to analyse a data set of the sort collected for a dissertation. Observational data sets are typically very esoteric in nature, and so tend to be challenging to analyse and may require quite advanced techniques. Careful thought and some creativity is usually needed to conduct any meaningful analysis. The more statistical methods that you know about, the more likely it will be that you will find an appropriate analytical tool to address your research question. Often you will need some help to find an appropriate method, but if you are aware of the concepts behind inferential statistics you can frame better questions.</p>
+</div>
+<div id="what-does-quantitative-data-consist-of" class="section level2">
+<h2><span class="header-section-number">6.6</span> What does quantitative data consist of?</h2>
+<p>This question appears at first sight rather trivial. Surely the key is in the name? Quantitative data consists of quantities, i.e. numbers, so we need to do some sort of maths to analyse them. However this simple definition hides many subtleties and potential pitfalls, as we will see It is often far from clear what sort of <strong>variables</strong> we are dealing with and how they are defined.</p>
+<p><strong>Variables</strong> are the <strong>column headers</strong> in a correctly formatted data frame. There are fundamentally two sorts of entries that can be typed into the rows below the column headers. Text and numbers. Let’s keep it all very simple for now.</p>
+<p>If a column contains rows of text then the variable is categorical, so it will be considered to be a “factor”. If the column contains rows of numbers, then the variable is a numerical variable of some form. There are many variations on this basic theme to consider, but once you have gained some clarity about this basic concept, many elements of data analysis will fall into place.</p>
+<p>So:</p>
+<ul>
+<li>Text will (nearly) always be interpreted as a factor</li>
+<li>Numbers of any sort will (nearly) always be interpreted as a numerical variable</li>
+</ul>
+<p>Factors have as many levels as there are unique entries in the data column. So if the header were “gender” we would have a categorical variable (factor) with two levels. If it is site we will have as many levels as sites.</p>
+<p>We could go onto to a mroe detailed break down of the differences between various forms of numerical variables, but we’ll leave it at that until later.</p>
+</div>
+<div id="data-visualisation-vs-statistical-analysis" class="section level2">
+<h2><span class="header-section-number">6.7</span> Data visualisation vs statistical analysis</h2>
+<p>Traditional statistical text books place probably place too much emphasis on the statistics, and too little emphasis on producing good clear data visualisations. If a picture is worth a thousand words it is also worth at least a thousand confusing and incomprehensible statistics. Good figures are often the most informative and useful elements in any modern data analysis.</p>
+<p>This is good news, as most people find figures much easier to understand than raw numbers. Once you become aware that a figure is not only easier to understand than a statistical test but that it is also often the best way to answer the key scientific question, some of the worry surrounding the issue of statistics can be removed.</p>
+</div>
+<div id="a-simple-example" class="section level2">
+<h2><span class="header-section-number">6.8</span> A simple example</h2>
+<p>Let’s frame a very straightforward scientific question and try to answer it with simple data.</p>
+<p>“How have global atmospheric CO<sub>2</sub> concentrations changed since the start of the industrial revolution?”</p>
+<p>Data available from here.</p>
+<p><a href="https://www.co2.earth/historical-co2-datasets" class="uri">https://www.co2.earth/historical-co2-datasets</a></p>
+</div>
+<div id="graphical-data-analysis" class="section level2">
+<h2><span class="header-section-number">6.9</span> Graphical data analysis</h2>
+<p>Let’s read the data into R. Its on the server in a folder beneath your working directory. This will read it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;/home/msc_scripts/data/co2.csv&quot;</span>)</code></pre></div>
+</div>
+<div id="forming-a-plot-in-r" class="section level2">
+<h2><span class="header-section-number">6.10</span> Forming a plot in R</h2>
+<p>Throughout this course we will use the modern graphics facility in R provided by the ggplot2 library as much as possible. This provides a unified approach to forming figures, that is slightly more difficult to learn to use than base graphics, but much more powerful.</p>
+<p>These lines load the library and set up a theme for the plots. There are various themes that change the overall look of the plots. The default theme has a grey background, and it is often better to have a cleaner looking black and white theme.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">theme_set</span>(<span class="kw">theme_bw</span>()) ## Set the theme to black and white</code></pre></div>
+<p>Now, to set up a plot we first define the aesthetics. The aesthetics refer to the way the variables are mapped onto the plotting scheme. We often have an x and y axis. This line sets these up.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-<span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x=</span>year,<span class="dt">y=</span>co2))  ## Set up the base plot</code></pre></div>
+<p>Nothing seems to have happened. However the object is being built up ready for plotting. This can then be used in various ways.</p>
+<p>Now we can use a “geometry” to form a plot wth a line. Geom_line does this.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-g0<span class="op">+</span><span class="kw">geom_line</span>()</code></pre></div>
+<p>When we type the name of the object it will now be plotted.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0</code></pre></div>
+<p><img src="Quantitative_and_Spatial_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>However we have just the variable names along the axes. It might be better to be more explicit about what is being plotted.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-g0<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Atmospheric Co2 concentrations (ppm)&quot;</span>)
+g0&lt;-g0<span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>)
+g0</code></pre></div>
+<p><img src="Quantitative_and_Spatial_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>There are a wide range of different geometries that can be used to add to the plot. I will provide example script lines for many of these that can be reused to make other plots. Say we need a reference vertical line in red to mark the start of the industrial revolution. We can add that using another line.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g0&lt;-<span class="st"> </span>g0 <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span><span class="dv">1790</span>,<span class="dt">colour=</span><span class="st">&quot;red&quot;</span>)
+g0</code></pre></div>
+<p><img src="Quantitative_and_Spatial_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>This is not a very sophisticated figure, and a very similar figure could have been produced using Excel or similar software. However the nice thing about R is that the code lines set everything needed to make the graph and they are reusable. If the initial setup line used a different set of data the figure would all be redrawn in the same way.</p>
+<p>The point is that the figure alone does tell most of the story in this case. It is quite apparent that atmospheric CO<sub>2</sub> concentrations have increased over time. The red line added to the figure represents the start of the industrial revolution and we can see a consistent increase in concentrations dates from around this time. We do not need to run any additional statistical tests in order to address the question using these particular data. All that is required is one clear figure, which conveys the message.</p>
+<p>This is not to imply that atmospheric scientists do not use inferential statistics, nor that a complete, formal analysis of the evidence for increasing levels of C0<sub>2</sub> in the atmosphere would not be based on some form of statistical modelling. However the raw numbers included in this particular data set are aggregated measures of global CO<sub>2</sub> concentrations. They are not appropriate input to any form of inferential statistical test.</p>
+<p>We use formal statistical <strong>inference</strong> when we do need to formally quantify uncertainty regarding the evidence we are using to address a scientific question. In this particular case there <strong>are</strong> many areas of genuine uncertainty, but we cannot address these through analysing the raw numbers as provided in this simple data set alone. Uncertainty arises due to the use of proxy measurements for historical CO<sub>2</sub> levels rather than direct instrumented measurement. This is totally invisible in the data set. The data as given provides no measure of potential variability in CO<sub>2</sub> levels from place to place. The data form a simple time series. Although the frequently used statistical techniques that you will learn more about on this course, such as linear regression, can sometimes be applied to time series, time series data points are not independent of each other. If CO<sub>2</sub> concentrations are increasing year on year then the levels one year will depend on the level the previous year. So, the series of points lacks both replication and independence. Replication and independence are basic requirements for many statistical methods, although there are tools available to deal with some lack of independence. Data such as these are <strong>not</strong> suitable as input to standard statistical tests nor to conventional statistical models.</p>
+<p>It is worth pointing this out right from the outset. Don’t jump to the use of inferential statistics until you need to use them. Similar situations often arise when data is collected for a dissertation but they may not be spotted as easily. “Which statistical test do I need to use to tell if there is a correlation between industrialisation and CO<sub>2</sub> concentrations?” is totally the <strong>wrong</strong> question to ask of these data as they stand. Furthermore, even if it were possible to use a statistical test, setting up a null hypothesis of no difference between pre and post industrialisation atmospheric CO<sub>2</sub> concentrations would make no sense, as there is a clearly understood and independently measurable process (CO<sub>2</sub> emissions) that is responsible for the change.</p>
+</div>
+<div id="a-more-complex-time-series" class="section level2">
+<h2><span class="header-section-number">6.11</span> A more complex time series</h2>
+<p>To illustrate the point further, look at this more detailed time series. It also consists of measurements of atmospheric CO<sub>2</sub> concentrations. There were taken at the Mauna Loa observatory in Hawaii.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(co2)
+<span class="kw">plot</span>(co2)</code></pre></div>
+<p><img src="Quantitative_and_Spatial_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>You can easily see the general increasing trend. However there is also some consistent seasonal variability imposed on top of the trend. This arises because vegetation in the Northern Hemisphere takes up CO<sub>2</sub> when it is growing in the spring and summer, and releases CO<sub>2</sub> through decomposition of organic material during the winter. So we have a more complete data set and we may be able to answer more complex questions, such as how much interanual fluctuation exists in CO<sub>2</sub> concentrations and whether these seasonal fluctuation have changed over time. These are not questions that involve purely <strong>random</strong> noise, so once again they are not suitable for simple, text book, introductory statistical tests.</p>
+</div>
+<div id="some-high-level-code-to-break-down-the-data" class="section level2">
+<h2><span class="header-section-number">6.12</span> Some high level code to break down the data</h2>
+<p>If this course were in fact to be aimed at teaching methods for analysing seasonal dependence in time series we would now go into great depth regarding a set of appropriate and specific analyses that could be applied to these sort of data. It is <strong>not</strong>, so we <strong>won’t</strong> do that at this point. However, just to illustrate the power that comes from being able to get the data into R, look at the ease with which we can run quite a sophisticated visual breakdown of the data. It simply needs a single line of R code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">stl</span>(co2,<span class="dt">s.window=</span><span class="dv">12</span>))</code></pre></div>
+<p><img src="Quantitative_and_Spatial_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>We now have a complex figure that shows the raw data in the top panel, the fluctuating seasonal pattern in the second, the underlying trend in the third, and residual, random, “white noise” variability in the bottom panel. The only strictly stocahstic (random) element in this time series is shown in the lower panel.</p>
+<p>The analysis can be run with a range of different parameters and the resulting breakdown of the data can be fed into more detailed further analyses. We won’t go into any of that at this stage. However, imagine how difficult it would be to produce a similar figure in Excel. Knowledge of R allows you to quickly apply sophisticated methods that have been developed by domain experts in a specific field very easily. All that is needed to get started is a reasonably good understanding of data formats and a basic understanding of some simple R syntax.</p>
+</div>
+<div id="inferential-statistics-1" class="section level2">
+<h2><span class="header-section-number">6.13</span> Inferential statistics</h2>
+<p>So, what is the difference between inferential statistical analysis and non inferential data analysis?</p>
+<p>Fundamentally, all inferential statistics are about <strong>estimating</strong> some key parameters from data, rather than precisely measuring them. If we do have precise measures then we don’t need any inferential statistics at all. In the ideal case we could do away with all inferential statistics completely. There is nothing intrinsically scientific about using statsitical analysis. Many physicists tend to avoid stats completely. However most ecological studies do need inferential statistics of some description simply because we don’t have precise measures and the systems we are looking at tend to be very variable. So they are a necessary evil.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-the-rstudio-server.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="confidence-intervals-for-univariate-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Quantitative_and_Spatial.pdf", "Quantitative_and_Spatial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative and spatial analysis</title>
+  <meta name="description" content="Quantitative and spatial analysis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative and spatial analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative and spatial analysis" />
+  
+  
+  
+
+<meta name="author" content="Duncan Golicher">
+
+
+<meta name="date" content="2019-12-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="on-screen-digitising.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="libs/jszip-1.10.16/jszip.min.js"></script>
+<link href="libs/dt-ext-buttons-1.10.16/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.16/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.1.17/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.2/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<link href="libs/PopupTable-0.0.1/popup.css" rel="stylesheet" />
+<link href="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.css" rel="stylesheet" />
+<script src="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.js"></script>
+<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
+<link href="libs/lfx-measure-path-1.3.1/lfx-measure-path-prod.css" rel="stylesheet" />
+<script src="libs/lfx-measure-path-1.3.1/lfx-measure-path-prod.js"></script>
+<script src="libs/lfx-measure-path-1.3.1/lfx-measure-path-bindings.js"></script>
+<link href="libs/leaflet-easybutton-1.3.1/easy-button.css" rel="stylesheet" />
+<script src="libs/leaflet-easybutton-1.3.1/easy-button.js"></script>
+<script src="libs/leaflet-easybutton-1.3.1/EasyButton-binding.js"></script>
+<link href="libs/ionicons-2.0.1/ionicons.min.css" rel="stylesheet" />
+<link href="libs/leaflet-measure-2.1.7/leaflet-measure.css" rel="stylesheet" />
+<script src="libs/leaflet-measure-2.1.7/leaflet-measure.min.js"></script>
+<script src="libs/aspect-1/data_stars_aspecte26b50.txt"></script>
+<script src="libs/joda-0.0.1/joda.js"></script>
+<script src="libs/dtm-1/data_stars_dtm1cb720.txt"></script>
+<script src="libs/fuse_js-3.2.0/fuse_js-prod.js"></script>
+<link href="libs/lfx-search-2.3.7/lfx-search-prod.css" rel="stylesheet" />
+<script src="libs/lfx-search-2.3.7/lfx-search-prod.js"></script>
+<script src="libs/lfx-search-2.3.7/lfx-search-bindings.js"></script>
+<script src="libs/dsm-1/data_stars_dsm4d7328.txt"></script>
+<script src="libs/chm10-1/data_stars_chm1086d415.txt"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative and spatial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html"><i class="fa fa-check"></i><b>1</b> Introduction to GIS</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#what-is-a-gis"><i class="fa fa-check"></i><b>1.1</b> What is a GIS?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#desktop-gis"><i class="fa fa-check"></i><b>1.2</b> Desktop GIS</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#some-key-gis-concept"><i class="fa fa-check"></i><b>1.3</b> Some key GIS concept</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#coordinate-reference-systems-and-projections."><i class="fa fa-check"></i><b>1.3.1</b> Coordinate reference systems and projections.</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#raster-vs-vector-data"><i class="fa fa-check"></i><b>1.3.2</b> Raster vs vector data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#making-your-own-maps"><i class="fa fa-check"></i><b>1.4</b> Making your own maps</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#the-qgis-interface"><i class="fa fa-check"></i><b>1.4.1</b> The QGIS interface</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#qgis-gui"><i class="fa fa-check"></i><b>1.4.2</b> QGIS GUI</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#adding-base-maps"><i class="fa fa-check"></i><b>1.4.3</b> Adding base maps</a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#loading-a-base-map"><i class="fa fa-check"></i><b>1.4.4</b> Loading a base map</a></li>
+<li class="chapter" data-level="1.4.5" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#saving-projects-and-files"><i class="fa fa-check"></i><b>1.4.5</b> Saving projects and files</a></li>
+<li class="chapter" data-level="1.4.6" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#adding-a-wcs-raster-layer-from-the-local-geoserver"><i class="fa fa-check"></i><b>1.4.6</b> Adding a WCS raster layer from the local Geoserver</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#raster-terrain-data"><i class="fa fa-check"></i><b>1.5</b> Raster terrain data</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#vector-data-from-the-wfs-service"><i class="fa fa-check"></i><b>1.6</b> Vector data from the WFS service</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-gis.html"><a href="introduction-to-gis.html#saving-layers-locally-for-processing-and-offline-use"><i class="fa fa-check"></i><b>1.7</b> Saving layers locally for processing and offline use</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html"><i class="fa fa-check"></i><b>2</b> On screen digitising</a><ul>
+<li class="chapter" data-level="2.1" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#digitising-tool-bar"><i class="fa fa-check"></i><b>2.1</b> Digitising tool bar</a></li>
+<li class="chapter" data-level="2.2" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#drawing-a-polygon"><i class="fa fa-check"></i><b>2.2</b> Drawing a polygon</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#valid-and-invalid-geometries"><i class="fa fa-check"></i><b>2.2.1</b> Valid and invalid geometries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#saving-the-polygon"><i class="fa fa-check"></i><b>2.3</b> Saving the polygon</a></li>
+<li class="chapter" data-level="2.4" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#snapping"><i class="fa fa-check"></i><b>2.4</b> Snapping</a></li>
+<li class="chapter" data-level="2.5" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#avoiding-intersections"><i class="fa fa-check"></i><b>2.5</b> Avoiding intersections</a></li>
+<li class="chapter" data-level="2.6" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#splitting-on-paths"><i class="fa fa-check"></i><b>2.6</b> Splitting on paths</a></li>
+<li class="chapter" data-level="2.7" data-path="on-screen-digitising.html"><a href="on-screen-digitising.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html"><i class="fa fa-check"></i><b>3</b> Styling and cartography</a><ul>
+<li class="chapter" data-level="3.1" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#using-a-prebuilt-style"><i class="fa fa-check"></i><b>3.2</b> Using a prebuilt style</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#finding-the-styling-dialogue"><i class="fa fa-check"></i><b>3.2.1</b> Finding the styling dialogue</a></li>
+<li class="chapter" data-level="3.2.2" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#loading-the-style-sheet-colour-scheme-for-the-polygons."><i class="fa fa-check"></i><b>3.2.2</b> Loading the style sheet colour scheme for the polygons.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#filtering-the-visible-styles"><i class="fa fa-check"></i><b>3.2.3</b> Filtering the visible styles</a></li>
+<li class="chapter" data-level="3.2.4" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#copying-and-pasting-styles"><i class="fa fa-check"></i><b>3.2.4</b> Copying and pasting styles</a></li>
+<li class="chapter" data-level="3.2.5" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#adding-derived-attributes"><i class="fa fa-check"></i><b>3.2.5</b> Adding derived attributes</a></li>
+<li class="chapter" data-level="3.2.6" data-path="styling-and-cartography.html"><a href="styling-and-cartography.html#cartography-designing-a-prinatable-map"><i class="fa fa-check"></i><b>3.2.6</b> Cartography: Designing a prinatable map</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="terrain-analysis.html"><a href="terrain-analysis.html"><i class="fa fa-check"></i><b>4</b> Terrain analysis</a><ul>
+<li class="chapter" data-level="4.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#what-is-terrain-analysis"><i class="fa fa-check"></i><b>4.1</b> What is terrain analysis</a></li>
+<li class="chapter" data-level="4.2" data-path="terrain-analysis.html"><a href="terrain-analysis.html#lidar-data"><i class="fa fa-check"></i><b>4.2</b> Lidar data</a></li>
+<li class="chapter" data-level="4.3" data-path="terrain-analysis.html"><a href="terrain-analysis.html#working-with-lidar-data-in-qgis"><i class="fa fa-check"></i><b>4.3</b> Working with Lidar data in QGIS</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#analytical-hill-shading"><i class="fa fa-check"></i><b>4.3.1</b> Analytical hill shading</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="terrain-analysis.html"><a href="terrain-analysis.html#colouring-the-dtm"><i class="fa fa-check"></i><b>4.4</b> Colouring the DTM</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#adding-contour-lines"><i class="fa fa-check"></i><b>4.4.1</b> Adding contour lines</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="terrain-analysis.html"><a href="terrain-analysis.html#calculating-slope-and-aspect"><i class="fa fa-check"></i><b>4.5</b> Calculating slope and aspect</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="terrain-analysis.html"><a href="terrain-analysis.html#slope"><i class="fa fa-check"></i><b>4.5.1</b> Slope</a></li>
+<li class="chapter" data-level="4.5.2" data-path="terrain-analysis.html"><a href="terrain-analysis.html#aspect"><i class="fa fa-check"></i><b>4.5.2</b> Aspect</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="terrain-analysis.html"><a href="terrain-analysis.html#calculating-canopy-height."><i class="fa fa-check"></i><b>4.6</b> Calculating canopy height.</a></li>
+<li class="chapter" data-level="4.7" data-path="terrain-analysis.html"><a href="terrain-analysis.html#investigating-canopy-height-in-3d"><i class="fa fa-check"></i><b>4.7</b> Investigating canopy height in 3D</a></li>
+<li class="chapter" data-level="4.8" data-path="terrain-analysis.html"><a href="terrain-analysis.html#calculating-raster-stats-for-polygons."><i class="fa fa-check"></i><b>4.8</b> Calculating raster stats for polygons.</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html"><i class="fa fa-check"></i><b>5</b> Introduction to the RStudio Server</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#getting-started-with-the-rstudio-server"><i class="fa fa-check"></i><b>5.2</b> Getting started with the RStudio server</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-log-into-the-rstudio-server"><i class="fa fa-check"></i><b>5.2.1</b> Action: Log into the RStudio server</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#rstudio-server-concepts"><i class="fa fa-check"></i><b>5.3</b> RStudio server concepts</a></li>
+<li class="chapter" data-level="5.4" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#finding-your-way-around-the-interface"><i class="fa fa-check"></i><b>5.4</b> Finding your way around the interface</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#using-projects-in-rstudio"><i class="fa fa-check"></i><b>5.4.1</b> Using projects in RStudio</a></li>
+<li class="chapter" data-level="5.4.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-form-a-new-project-and-add-a-new-folder"><i class="fa fa-check"></i><b>5.4.2</b> Action: Form a new project and add a new folder</a></li>
+<li class="chapter" data-level="5.4.3" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#using-the-console"><i class="fa fa-check"></i><b>5.4.3</b> Using the console</a></li>
+<li class="chapter" data-level="5.4.4" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-make-a-data-object-vector-in-r"><i class="fa fa-check"></i><b>5.4.4</b> Action: Make a data object (vector) in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#data-abstraction-and-data-visualisation"><i class="fa fa-check"></i><b>5.5</b> Data abstraction and data visualisation</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-visualise-the-data-using-a-simple-histogram"><i class="fa fa-check"></i><b>5.5.1</b> Action: Visualise the data using a simple histogram</a></li>
+<li class="chapter" data-level="5.5.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-close-the-project"><i class="fa fa-check"></i><b>5.5.2</b> Action: Close the project</a></li>
+<li class="chapter" data-level="5.5.3" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-restore-the-project"><i class="fa fa-check"></i><b>5.5.3</b> Action: Restore the project</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#working-with-markdown-documents."><i class="fa fa-check"></i><b>5.6</b> Working with markdown documents.</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-produce-a-default-markdown-document."><i class="fa fa-check"></i><b>5.6.1</b> Action: Produce a default markdown document.</a></li>
+<li class="chapter" data-level="5.6.2" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#action-clean-out-rinse-and-repeat-for-practice-sake"><i class="fa fa-check"></i><b>5.6.2</b> Action: Clean out, rinse and repeat, for practice sake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="introduction-to-the-rstudio-server.html"><a href="introduction-to-the-rstudio-server.html#conclusion"><i class="fa fa-check"></i><b>5.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html"><i class="fa fa-check"></i><b>6</b> Basic statistical concepts. Refresher using a simple example</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#getting-some-data"><i class="fa fa-check"></i><b>6.0.1</b> Getting some data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-get-some-personal-data"><i class="fa fa-check"></i><b>6.0.2</b> Action: Get some personal data</a></li>
+<li class="chapter" data-level="6.0.3" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-summarise-the-class-data"><i class="fa fa-check"></i><b>6.0.3</b> Action: Summarise the class data</a></li>
+<li class="chapter" data-level="6.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#inferential-statistics"><i class="fa fa-check"></i><b>6.1</b> Inferential statistics</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-calculate-the-standard-deviation-by-hand"><i class="fa fa-check"></i><b>6.1.1</b> Action: Calculate the standard deviation “by hand”</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#calcuate-the-standard-error-of-the-mean."><i class="fa fa-check"></i><b>6.2</b> Calcuate the standard error of the mean.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-calculate-the-standard-error-and-95-confidence-interval-for-the-mean"><i class="fa fa-check"></i><b>6.2.1</b> Action: Calculate the standard error and 95% confidence interval for the mean</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#test-whether-the-statistics-work"><i class="fa fa-check"></i><b>6.3</b> Test whether the statistics “work”</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#action-rinse-and-repeat."><i class="fa fa-check"></i><b>6.3.1</b> Action: Rinse and repeat.</a></li>
+<li class="chapter" data-level="6.3.2" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#conclusion-1"><i class="fa fa-check"></i><b>6.3.2</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#planning-an-analysis"><i class="fa fa-check"></i><b>6.4</b> Planning an analysis</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#understanding-your-data-before-you-start-colllecting-them"><i class="fa fa-check"></i><b>6.4.1</b> Understanding your data before you start colllecting them</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#quantitative-analysis"><i class="fa fa-check"></i><b>6.5</b> Quantitative analysis</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#what-does-quantitative-data-consist-of"><i class="fa fa-check"></i><b>6.6</b> What does quantitative data consist of?</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#data-visualisation-vs-statistical-analysis"><i class="fa fa-check"></i><b>6.7</b> Data visualisation vs statistical analysis</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#a-simple-example"><i class="fa fa-check"></i><b>6.8</b> A simple example</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#graphical-data-analysis"><i class="fa fa-check"></i><b>6.9</b> Graphical data analysis</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#forming-a-plot-in-r"><i class="fa fa-check"></i><b>6.10</b> Forming a plot in R</a></li>
+<li class="chapter" data-level="6.11" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#a-more-complex-time-series"><i class="fa fa-check"></i><b>6.11</b> A more complex time series</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#some-high-level-code-to-break-down-the-data"><i class="fa fa-check"></i><b>6.12</b> Some high level code to break down the data</a></li>
+<li class="chapter" data-level="6.13" data-path="basic-statistical-concepts-refresher-using-a-simple-example.html"><a href="basic-statistical-concepts-refresher-using-a-simple-example.html#inferential-statistics-1"><i class="fa fa-check"></i><b>6.13</b> Inferential statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html"><i class="fa fa-check"></i><b>7</b> Confidence intervals for univariate data</a><ul>
+<li class="chapter" data-level="7.1" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#reminder-basic-statistics"><i class="fa fa-check"></i><b>7.2</b> Reminder: Basic statistics</a></li>
+<li class="chapter" data-level="7.3" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>7.3</b> Measures of central tendency</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#measures-of-variability"><i class="fa fa-check"></i><b>7.3.1</b> Measures of variability</a></li>
+<li class="chapter" data-level="7.3.2" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#the-normal-distribution"><i class="fa fa-check"></i><b>7.3.2</b> The normal distribution</a></li>
+<li class="chapter" data-level="7.3.3" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#checking-data-properties-with-figures"><i class="fa fa-check"></i><b>7.3.3</b> Checking data properties with figures</a></li>
+<li class="chapter" data-level="7.3.4" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#calculating-the-standard-error"><i class="fa fa-check"></i><b>7.3.4</b> Calculating the standard error</a></li>
+<li class="chapter" data-level="7.3.5" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#the-sampling-distribution-of-the-mean"><i class="fa fa-check"></i><b>7.3.5</b> The sampling distribution of the mean</a></li>
+<li class="chapter" data-level="7.3.6" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#calculating-confidence-intervals"><i class="fa fa-check"></i><b>7.3.6</b> Calculating confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="confidence-intervals-for-univariate-data.html"><a href="confidence-intervals-for-univariate-data.html#conclusion-and-take-home-messages"><i class="fa fa-check"></i><b>7.4</b> Conclusion and take home messages</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html"><i class="fa fa-check"></i><b>8</b> Using figures to understand and present data</a><ul>
+<li class="chapter" data-level="8.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#quick-exploratory-plots"><i class="fa fa-check"></i><b>8.1</b> Quick exploratory plots</a></li>
+<li class="chapter" data-level="8.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#introduction-to-grammar-of-graphics-plots"><i class="fa fa-check"></i><b>8.2</b> Introduction to grammar of graphics plots</a></li>
+<li class="chapter" data-level="8.3" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#simple-bar-charts"><i class="fa fa-check"></i><b>8.3</b> Simple bar charts</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#exercise-3"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#simple-line-charts"><i class="fa fa-check"></i><b>8.4</b> Simple Line charts</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#exercise-4"><i class="fa fa-check"></i><b>8.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#histograms"><i class="fa fa-check"></i><b>8.5</b> Histograms</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#default-histogram"><i class="fa fa-check"></i><b>8.5.1</b> Default histogram</a></li>
+<li class="chapter" data-level="8.5.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#facet-wrapping"><i class="fa fa-check"></i><b>8.5.2</b> Facet wrapping</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#boxplots"><i class="fa fa-check"></i><b>8.6</b> Boxplots</a></li>
+<li class="chapter" data-level="8.7" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#confidence-interval-plots"><i class="fa fa-check"></i><b>8.7</b> Confidence interval plots</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#dynamite-plots-dont-use"><i class="fa fa-check"></i><b>8.7.1</b> Dynamite plots (Don’t use!)</a></li>
+<li class="chapter" data-level="8.7.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#inference-on-medians"><i class="fa fa-check"></i><b>8.7.2</b> Inference on medians</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#scatterplots"><i class="fa fa-check"></i><b>8.8</b> Scatterplots</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#adding-a-regression-line"><i class="fa fa-check"></i><b>8.8.1</b> Adding a regression line</a></li>
+<li class="chapter" data-level="8.8.2" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#grouping-and-conditioning"><i class="fa fa-check"></i><b>8.8.2</b> Grouping and conditioning</a></li>
+<li class="chapter" data-level="8.8.3" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#curvilinear-relationships"><i class="fa fa-check"></i><b>8.8.3</b> Curvilinear relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#generalised-linear-models"><i class="fa fa-check"></i><b>8.9</b> Generalised linear models</a></li>
+<li class="chapter" data-level="8.10" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#binomial-data"><i class="fa fa-check"></i><b>8.10</b> Binomial data</a></li>
+<li class="chapter" data-level="8.11" data-path="using-figures-to-understand-and-present-data.html"><a href="using-figures-to-understand-and-present-data.html#learning-more-about-ggplots"><i class="fa fa-check"></i><b>8.11</b> Learning more about ggplots</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html"><i class="fa fa-check"></i><b>9</b> T tests and hypothesis testing</a><ul>
+<li class="chapter" data-level="9.1" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#statistical-hypothesis-testing"><i class="fa fa-check"></i><b>9.1</b> Statistical hypothesis testing</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#the-unpaired-t-test"><i class="fa fa-check"></i><b>9.1.1</b> The unpaired t-test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#the-t-statistic"><i class="fa fa-check"></i><b>9.1.2</b> The t-statistic</a></li>
+<li class="chapter" data-level="9.1.3" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#interpretation-of-a-p-value"><i class="fa fa-check"></i><b>9.1.3</b> Interpretation of a p-value</a></li>
+<li class="chapter" data-level="9.1.4" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.1.4</b> Tests and confidence intervals</a></li>
+<li class="chapter" data-level="9.1.5" data-path="t-tests-and-hypothesis-testing.html"><a href="t-tests-and-hypothesis-testing.html#using-hypothesis-tests-wisely"><i class="fa fa-check"></i><b>9.1.5</b> Using hypothesis tests wisely</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html"><i class="fa fa-check"></i><b>10</b> Introduction to one way ANOVA</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#multiple-comparisons"><i class="fa fa-check"></i><b>10.0.1</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="10.0.2" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#visualising-between-group-variation-using-boxplots"><i class="fa fa-check"></i><b>10.0.2</b> Visualising between group variation using boxplots</a></li>
+<li class="chapter" data-level="10.0.3" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#boxplot-statistics"><i class="fa fa-check"></i><b>10.0.3</b> Boxplot statistics</a></li>
+<li class="chapter" data-level="10.0.4" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#plotting-confidence-intervals-for-each-group"><i class="fa fa-check"></i><b>10.0.4</b> Plotting confidence intervals for each group</a></li>
+<li class="chapter" data-level="10.0.5" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#fitting-a-model"><i class="fa fa-check"></i><b>10.0.5</b> Fitting a model</a></li>
+<li class="chapter" data-level="10.0.6" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#the-f-ratio-and-degrees-of-freedom"><i class="fa fa-check"></i><b>10.0.6</b> The F ratio and degrees of freedom</a></li>
+<li class="chapter" data-level="10.0.7" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>10.0.7</b> Homogeneity of variance</a></li>
+<li class="chapter" data-level="10.1" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#alternative-to-the-one-way-test"><i class="fa fa-check"></i><b>10.1</b> Alternative to the one way test</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#determining-where-the-differences-lie"><i class="fa fa-check"></i><b>10.1.1</b> Determining where the differences lie</a></li>
+<li class="chapter" data-level="10.1.2" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#bonferoni-corrections"><i class="fa fa-check"></i><b>10.1.2</b> Bonferoni corrections</a></li>
+<li class="chapter" data-level="10.1.3" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#tukeys-honest-significant-difference"><i class="fa fa-check"></i><b>10.1.3</b> Tukey’s honest significant difference</a></li>
+<li class="chapter" data-level="10.1.4" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#the-kruskal-wallace-non-parametric-test."><i class="fa fa-check"></i><b>10.1.4</b> The Kruskal Wallace non parametric test.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#power-analysis"><i class="fa fa-check"></i><b>10.2</b> Power analysis</a></li>
+<li class="chapter" data-level="10.3" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#exercise-5"><i class="fa fa-check"></i><b>10.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.4" data-path="introduction-to-one-way-anova.html"><a href="introduction-to-one-way-anova.html#references"><i class="fa fa-check"></i><b>10.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html"><i class="fa fa-check"></i><b>11</b> Regression as a statistical modelling</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#uses-of-models"><i class="fa fa-check"></i><b>11.0.1</b> Uses of models</a></li>
+<li class="chapter" data-level="11.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#the-general-linear-model"><i class="fa fa-check"></i><b>11.1</b> The general linear model</a></li>
+<li class="chapter" data-level="11.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#regression"><i class="fa fa-check"></i><b>11.2</b> Regression</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#theory"><i class="fa fa-check"></i><b>11.2.1</b> Theory</a></li>
+<li class="chapter" data-level="11.2.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#example"><i class="fa fa-check"></i><b>11.2.2</b> Example</a></li>
+<li class="chapter" data-level="11.2.3" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#confidence-intervals"><i class="fa fa-check"></i><b>11.2.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="11.2.4" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#prediction-1"><i class="fa fa-check"></i><b>11.2.4</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#using-ggplot2-for-confidence-intervals."><i class="fa fa-check"></i><b>11.3</b> Using ggplot2 for confidence intervals.</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#prediction-intervals"><i class="fa fa-check"></i><b>11.3.1</b> Prediction intervals</a></li>
+<li class="chapter" data-level="11.3.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#diagnostics"><i class="fa fa-check"></i><b>11.3.2</b> Diagnostics</a></li>
+<li class="chapter" data-level="11.3.3" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#lack-of-independence"><i class="fa fa-check"></i><b>11.3.3</b> Lack of independence</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#where-do-the-sum-of-squares-come-from"><i class="fa fa-check"></i><b>11.4</b> Where do the sum of squares come from?</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#regression-1"><i class="fa fa-check"></i><b>11.4.1</b> Regression</a></li>
+<li class="chapter" data-level="11.4.2" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#residuals"><i class="fa fa-check"></i><b>11.4.2</b> Residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#where-does-r-squared-coefficient-of-determination-come-from"><i class="fa fa-check"></i><b>11.5</b> Where does R squared (coefficient of determination) come from?</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="regression-as-a-statistical-modelling.html"><a href="regression-as-a-statistical-modelling.html#violations-of-assumptions"><i class="fa fa-check"></i><b>11.5.1</b> Violations of assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="advice-on-regression.html"><a href="advice-on-regression.html"><i class="fa fa-check"></i><b>12</b> Advice on regression</a><ul>
+<li class="chapter" data-level="12.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#introduction-3"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
+<li class="chapter" data-level="12.2" data-path="advice-on-regression.html"><a href="advice-on-regression.html#predictive-modelling-calibration"><i class="fa fa-check"></i><b>12.2</b> Predictive modelling: Calibration</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up"><i class="fa fa-check"></i><b>12.2.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="advice-on-regression.html"><a href="advice-on-regression.html#explanatory-modelling"><i class="fa fa-check"></i><b>12.3</b> Explanatory modelling:</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-1"><i class="fa fa-check"></i><b>12.3.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="advice-on-regression.html"><a href="advice-on-regression.html#testing-for-a-relationship"><i class="fa fa-check"></i><b>12.4</b> Testing for a relationship</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-2"><i class="fa fa-check"></i><b>12.4.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="advice-on-regression.html"><a href="advice-on-regression.html#diagnostics-show-assumptions-not-met"><i class="fa fa-check"></i><b>12.5</b> Diagnostics show assumptions not met</a></li>
+<li class="chapter" data-level="12.6" data-path="advice-on-regression.html"><a href="advice-on-regression.html#skewed-independent-variable"><i class="fa fa-check"></i><b>12.6</b> Skewed independent variable</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-3"><i class="fa fa-check"></i><b>12.6.1</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="advice-on-regression.html"><a href="advice-on-regression.html#spearmans-rank-correlation"><i class="fa fa-check"></i><b>12.7</b> Spearman’s rank correlation</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#taking-ranks"><i class="fa fa-check"></i><b>12.7.1</b> Taking ranks</a></li>
+<li class="chapter" data-level="12.7.2" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-4"><i class="fa fa-check"></i><b>12.7.2</b> Advice on writing up</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="advice-on-regression.html"><a href="advice-on-regression.html#non-linear-response"><i class="fa fa-check"></i><b>12.8</b> Non linear response</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="advice-on-regression.html"><a href="advice-on-regression.html#advice-on-writing-up-5"><i class="fa fa-check"></i><b>12.8.1</b> Advice on writing up</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html"><i class="fa fa-check"></i><b>13</b> Crib sheet for regression and ANOVA</a><ul>
+<li class="chapter" data-level="13.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#introduction-4"><i class="fa fa-check"></i><b>13.1</b> Introduction</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#packages-needed"><i class="fa fa-check"></i><b>13.1.1</b> Packages needed</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#loading-the-data"><i class="fa fa-check"></i><b>13.2</b> Loading the data</a></li>
+<li class="chapter" data-level="13.3" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#finding-out-about-the-data"><i class="fa fa-check"></i><b>13.3</b> Finding out about the data</a></li>
+<li class="chapter" data-level="13.4" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#making-your-data-available-to-others"><i class="fa fa-check"></i><b>13.4</b> Making your data available to others</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#note-this-only-works-as-an-html-document"><i class="fa fa-check"></i><b>13.4.1</b> NOTE THIS ONLY WORKS AS AN HTML DOCUMENT</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#subsetting"><i class="fa fa-check"></i><b>13.5</b> Subsetting</a></li>
+<li class="chapter" data-level="13.6" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#data-summaries-for-individual-variables"><i class="fa fa-check"></i><b>13.6</b> Data summaries for individual variables</a></li>
+<li class="chapter" data-level="13.7" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#individual-statistics-for-a-single-variable"><i class="fa fa-check"></i><b>13.7</b> Individual statistics for a single variable</a></li>
+<li class="chapter" data-level="13.8" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#simple-boxplot-of-one-variable"><i class="fa fa-check"></i><b>13.8</b> Simple boxplot of one variable</a></li>
+<li class="chapter" data-level="13.9" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#simple-histogram-of-one-variable"><i class="fa fa-check"></i><b>13.9</b> Simple histogram of one variable</a></li>
+<li class="chapter" data-level="13.10" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#neater-histogram-of-one-variable"><i class="fa fa-check"></i><b>13.10</b> Neater histogram of one variable</a></li>
+<li class="chapter" data-level="13.11" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#regression-2"><i class="fa fa-check"></i><b>13.11</b> Regression</a></li>
+<li class="chapter" data-level="13.12" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#scatterplot-without-fitted-line"><i class="fa fa-check"></i><b>13.12</b> Scatterplot without fitted line</a></li>
+<li class="chapter" data-level="13.13" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#scatterplot-with-fitted-line-and-labels"><i class="fa fa-check"></i><b>13.13</b> Scatterplot with fitted line and labels</a></li>
+<li class="chapter" data-level="13.14" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#fitting-a-model-1"><i class="fa fa-check"></i><b>13.14</b> Fitting a model</a></li>
+<li class="chapter" data-level="13.15" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#extracting-residuals"><i class="fa fa-check"></i><b>13.15</b> Extracting residuals</a></li>
+<li class="chapter" data-level="13.16" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#model-summary"><i class="fa fa-check"></i><b>13.16</b> Model summary</a></li>
+<li class="chapter" data-level="13.17" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#model-anova-table"><i class="fa fa-check"></i><b>13.17</b> Model anova table</a></li>
+<li class="chapter" data-level="13.18" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#confidence-intervals-for-the-model-parameters"><i class="fa fa-check"></i><b>13.18</b> Confidence intervals for the model parameters</a><ul>
+<li class="chapter" data-level="13.18.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#model-diagnostics"><i class="fa fa-check"></i><b>13.18.1</b> Model diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.19" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#spearmans-rank-correlation-1"><i class="fa fa-check"></i><b>13.19</b> Spearman’s rank correlation</a><ul>
+<li class="chapter" data-level="13.19.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#fitting-a-spline"><i class="fa fa-check"></i><b>13.19.1</b> Fitting a spline</a></li>
+</ul></li>
+<li class="chapter" data-level="13.20" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#one-way-anova"><i class="fa fa-check"></i><b>13.20</b> One way ANOVA</a><ul>
+<li class="chapter" data-level="13.20.1" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#grouped-boxplots"><i class="fa fa-check"></i><b>13.20.1</b> Grouped boxplots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.21" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#histograms-for-each-factor-level"><i class="fa fa-check"></i><b>13.21</b> Histograms for each factor level</a></li>
+<li class="chapter" data-level="13.22" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#confidence-interval-plot"><i class="fa fa-check"></i><b>13.22</b> Confidence interval plot</a></li>
+<li class="chapter" data-level="13.23" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#fitting-anova"><i class="fa fa-check"></i><b>13.23</b> Fitting ANOVA</a></li>
+<li class="chapter" data-level="13.24" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#tukey-corrected-pairwise-comparisons"><i class="fa fa-check"></i><b>13.24</b> Tukey corrected pairwise comparisons</a></li>
+<li class="chapter" data-level="13.25" data-path="crib-sheet-for-regression-and-anova.html"><a href="crib-sheet-for-regression-and-anova.html#anova-with-whites-correction"><i class="fa fa-check"></i><b>13.25</b> Anova with White’s correction</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html"><i class="fa fa-check"></i><b>14</b> Crib sheet for GIS in R</a><ul>
+<li class="chapter" data-level="14.1" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#introduction-5"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.2" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#reading-in-a-shapefile"><i class="fa fa-check"></i><b>14.2</b> Reading in a shapefile</a></li>
+<li class="chapter" data-level="14.3" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#transforming-to-british-national-grid"><i class="fa fa-check"></i><b>14.3</b> Transforming to British National Grid</a></li>
+<li class="chapter" data-level="14.4" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#mapview-of-a-polygon-layer"><i class="fa fa-check"></i><b>14.4</b> Mapview of a polygon layer</a></li>
+<li class="chapter" data-level="14.5" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#adding-an-overview-map"><i class="fa fa-check"></i><b>14.5</b> Adding an overview map</a></li>
+<li class="chapter" data-level="14.6" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#adding-a-measurement-tool"><i class="fa fa-check"></i><b>14.6</b> Adding a measurement tool</a></li>
+<li class="chapter" data-level="14.7" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#reading-in-points-from-a-csv"><i class="fa fa-check"></i><b>14.7</b> Reading in points from a CSV</a></li>
+<li class="chapter" data-level="14.8" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#reading-raster-data"><i class="fa fa-check"></i><b>14.8</b> Reading raster data</a></li>
+<li class="chapter" data-level="14.9" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#making-colour-ramps-for-raster-data"><i class="fa fa-check"></i><b>14.9</b> Making colour ramps for raster data</a></li>
+<li class="chapter" data-level="14.10" data-path="crib-sheet-for-gis-in-r.html"><a href="crib-sheet-for-gis-in-r.html#extracting-raster-values-for-points"><i class="fa fa-check"></i><b>14.10</b> Extracting raster values for points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="hengistbury.html"><a href="hengistbury.html"><i class="fa fa-check"></i><b>15</b> Hengistbury</a></li>
+<li class="chapter" data-level="16" data-path="arne-data-quick-load.html"><a href="arne-data-quick-load.html"><i class="fa fa-check"></i><b>16</b> Arne data quick load</a><ul>
+<li class="chapter" data-level="16.1" data-path="arne-data-quick-load.html"><a href="arne-data-quick-load.html#introduction-6"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="arne-2019.html"><a href="arne-2019.html"><i class="fa fa-check"></i><b>17</b> Arne 2019</a><ul>
+<li class="chapter" data-level="17.1" data-path="arne-2019.html"><a href="arne-2019.html#loading-the-waypoints"><i class="fa fa-check"></i><b>17.1</b> Loading the waypoints</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><i class="fa fa-check"></i><b>18</b> Regression analysis using measurements on individual pines from the Arne 2019 data</a><ul>
+<li class="chapter" data-level="18.1" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#introduction-7"><i class="fa fa-check"></i><b>18.1</b> Introduction</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#load-r-libraries"><i class="fa fa-check"></i><b>18.1.1</b> Load R libraries</a></li>
+<li class="chapter" data-level="18.1.2" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#load-the-data"><i class="fa fa-check"></i><b>18.1.2</b> Load the data</a></li>
+<li class="chapter" data-level="18.1.3" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#looking-at-the-data"><i class="fa fa-check"></i><b>18.1.3</b> Looking at the data</a></li>
+<li class="chapter" data-level="18.1.4" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#simple-base-r-figures"><i class="fa fa-check"></i><b>18.1.4</b> Simple base R figures</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#scatterplots-1"><i class="fa fa-check"></i><b>18.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="18.3" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#regression-vs-correlation-analysis"><i class="fa fa-check"></i><b>18.3</b> Regression vs correlation analysis</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#spline-and-line-analysis"><i class="fa fa-check"></i><b>18.3.1</b> Spline and line analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#fitting-a-regression"><i class="fa fa-check"></i><b>18.4</b> Fitting a regression</a></li>
+<li class="chapter" data-level="18.5" data-path="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html"><a href="regression-analysis-using-measurements-on-individual-pines-from-the-arne-2019-data.html#fitting-a-gam"><i class="fa fa-check"></i><b>18.5</b> Fitting a GAM</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><i class="fa fa-check"></i><b>19</b> Analysing the residuals from regression analysis on individual pines from the Arne 2019 data</a><ul>
+<li class="chapter" data-level="19.1" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#introduction-8"><i class="fa fa-check"></i><b>19.1</b> Introduction</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#load-r-libraries-1"><i class="fa fa-check"></i><b>19.1.1</b> Load R libraries</a></li>
+<li class="chapter" data-level="19.1.2" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#load-the-data-1"><i class="fa fa-check"></i><b>19.1.2</b> Load the data</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#adding-the-gps-points-to-the-pines"><i class="fa fa-check"></i><b>19.2</b> Adding the GPS points to the pines</a></li>
+<li class="chapter" data-level="19.3" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#looking-at-the-residual"><i class="fa fa-check"></i><b>19.3</b> Looking at the residual</a><ul>
+<li class="chapter" data-level="19.3.1" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#plotting-the-data-by-site"><i class="fa fa-check"></i><b>19.3.1</b> Plotting the data by site</a></li>
+<li class="chapter" data-level="19.3.2" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#obtaining-residuals"><i class="fa fa-check"></i><b>19.3.2</b> Obtaining residuals</a></li>
+<li class="chapter" data-level="19.3.3" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#plotting-the-residuals-by-site"><i class="fa fa-check"></i><b>19.3.3</b> Plotting the residuals by site</a></li>
+<li class="chapter" data-level="19.3.4" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#confidence-intervals-1"><i class="fa fa-check"></i><b>19.3.4</b> Confidence intervals</a></li>
+<li class="chapter" data-level="19.3.5" data-path="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html"><a href="analysing-the-residuals-from-regression-analysis-on-individual-pines-from-the-arne-2019-data.html#simple-unpaired-t-test"><i class="fa fa-check"></i><b>19.3.5</b> Simple unpaired t-test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html"><i class="fa fa-check"></i><b>20</b> Mapping and analysing pine densities at Arne</a><ul>
+<li class="chapter" data-level="20.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#introduction-9"><i class="fa fa-check"></i><b>20.1</b> Introduction</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#loading-libraries"><i class="fa fa-check"></i><b>20.1.1</b> Loading libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#loading-the-data-1"><i class="fa fa-check"></i><b>20.2</b> Loading the data</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#points-to-notice"><i class="fa fa-check"></i><b>20.2.1</b> Points to notice</a></li>
+<li class="chapter" data-level="20.2.2" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#making-a-spatial-object-in-r"><i class="fa fa-check"></i><b>20.2.2</b> Making a spatial object in R</a></li>
+<li class="chapter" data-level="20.2.3" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action"><i class="fa fa-check"></i><b>20.2.3</b> Action</a></li>
+<li class="chapter" data-level="20.2.4" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#comparing-density-in-the-heathland-and-restoration-site."><i class="fa fa-check"></i><b>20.2.4</b> Comparing density in the heathland and restoration site.</a></li>
+<li class="chapter" data-level="20.2.5" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#question-how-does-the-pine-density-differ-between-the-heathland-and-the-restoration-site"><i class="fa fa-check"></i><b>20.2.5</b> Question: How does the pine density differ between the heathland and the restoration site?</a></li>
+<li class="chapter" data-level="20.2.6" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#boxplot-of-pine-density"><i class="fa fa-check"></i><b>20.2.6</b> Boxplot of pine density</a></li>
+<li class="chapter" data-level="20.2.7" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action-1"><i class="fa fa-check"></i><b>20.2.7</b> Action</a></li>
+<li class="chapter" data-level="20.2.8" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#inferential-confidence-interval-plot"><i class="fa fa-check"></i><b>20.2.8</b> Inferential confidence interval plot</a></li>
+<li class="chapter" data-level="20.2.9" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action-2"><i class="fa fa-check"></i><b>20.2.9</b> Action</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#section"><i class="fa fa-check"></i><b>20.3</b> ——————————————————-</a></li>
+<li class="chapter" data-level="20.4" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#investigating-factors-affecting-pine-densities-on-the-heathland-site"><i class="fa fa-check"></i><b>20.4</b> Investigating factors affecting pine densities on the heathland site</a></li>
+<li class="chapter" data-level="20.5" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#spatial-data"><i class="fa fa-check"></i><b>20.5</b> Spatial data</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#cropping"><i class="fa fa-check"></i><b>20.5.1</b> Cropping</a></li>
+<li class="chapter" data-level="20.5.2" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#terrain-analysis-1"><i class="fa fa-check"></i><b>20.5.2</b> Terrain analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#raster-algebra"><i class="fa fa-check"></i><b>20.6</b> Raster algebra</a></li>
+<li class="chapter" data-level="20.7" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#raster-aggregation"><i class="fa fa-check"></i><b>20.7</b> Raster aggregation</a><ul>
+<li class="chapter" data-level="20.7.1" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#action-3"><i class="fa fa-check"></i><b>20.7.1</b> Action</a></li>
+</ul></li>
+<li class="chapter" data-level="20.8" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#adding-the-values-to-the-quadrats"><i class="fa fa-check"></i><b>20.8</b> Adding the values to the quadrats</a></li>
+<li class="chapter" data-level="20.9" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#distances-to-trees"><i class="fa fa-check"></i><b>20.9</b> Distances to trees</a></li>
+<li class="chapter" data-level="20.10" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#data-table"><i class="fa fa-check"></i><b>20.10</b> Data table</a></li>
+<li class="chapter" data-level="20.11" data-path="mapping-and-analysing-pine-densities-at-arne.html"><a href="mapping-and-analysing-pine-densities-at-arne.html#writing-out-the-data"><i class="fa fa-check"></i><b>20.11</b> Writing out the data</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html"><i class="fa fa-check"></i><b>21</b> Statistical analysis of the pine density data</a><ul>
+<li class="chapter" data-level="21.1" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html#introduction-10"><i class="fa fa-check"></i><b>21.1</b> Introduction</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html#loading-libraries-1"><i class="fa fa-check"></i><b>21.1.1</b> Loading libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="statistical-analysis-of-the-pine-density-data.html"><a href="statistical-analysis-of-the-pine-density-data.html#running-analyses"><i class="fa fa-check"></i><b>21.2</b> Running analyses</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative and spatial analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Quantitative and spatial analysis</h1>
+<p class="author"><em>Duncan Golicher</em></p>
+<p class="date"><em>2019-12-12</em></p>
+</div>
+<div id="introduction-to-gis" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction to GIS</h1>
+<div id="what-is-a-gis" class="section level2">
+<h2><span class="header-section-number">1.1</span> What is a GIS?</h2>
+<p>The initials GIS stand for Geographical Information System. For many years a handful of companies produced and marketed GIS software. Many GIS courses were designed around these products. This led to the term being closely associated with desktop GIS such as Esri’s Arc GIS. The rise in use of this particular software occurred prior to the internet. Today, Geographical Information is an integral part of the internet. It is collected by us all every time we use a phone or computer (IP addresses are geo referenced). Almost all environmental data also has some form of spatial component. So, a modern Geographical Information System must link to the internet and must take in data from many different sources. There are a wide range of different tools for achieving this. Modern spatial data processing links these tools together. So a GIS is <strong>not</strong> a single piece of software, it is best thought of of an interlinked stack of software tools that are all working together. Some of the elements are visible to users and so controllable through a Graphical User Interface (GUI). Other elements work behind the scenes to provide the data streams and spatial algorithms. Many of the more traditional skills taught on GIS courses that used single pieces of software are still relevant, but they now link into this broader based concept of spatial data analysis. We can consider Google Maps, SatNavs, sports tracking phone apps, weather maps etc as all examples of modern GIS’s. The statistical software R, that we will use later in the course, is also a GIS. We all use GIS’s every day, often without realising it.</p>
+<div id="exercise" class="section level4">
+<h4><span class="header-section-number">1.1.0.1</span> Exercise</h4>
+<p>Open this weather mapping app in a browser.</p>
+<p><a href="https://www.windy.com" class="uri">https://www.windy.com</a></p>
+<p>Which elements of a GIS does it use? What sort of data is being processed? How does spatial data (maps) link to temporal data (time series)? How important is good visualisation in allowing users to understand large quantities of data?</p>
+</div>
+</div>
+<div id="desktop-gis" class="section level2">
+<h2><span class="header-section-number">1.2</span> Desktop GIS</h2>
+<p>Desktop software with a GUI remain important analytical and cartographic tools for all environmental scientists and managers. In 2018 there are two popular options. Esri’s ArcGIS still has the largest commercial market share. However many users have now switched to the free and Open Source QGIS. This provides most of the same basic functionality as ArcGIS and a similar look and feel. One advantage of QGIS is clearly the cost (it is free). QGIS also links very cleanly with a wide range of additional open source software for spatial data processing. If you learn to use QGIS it is easy that can implement the more advanced operations that are also available in ArcGIS. The interfaces are quite similar, although there are a few differences in layout. All spatial data sets can be saved in generic formats that can be opened in both pieces of software. GIS skills are not really software specific. If you learn to run an analysis in one piece of software you can easily learn to run it in another. The key element required to become comfortable working with GIS is a good understanding of the nature of spatial data sets and the range of operations that can be performed on them.</p>
+</div>
+<div id="some-key-gis-concept" class="section level2">
+<h2><span class="header-section-number">1.3</span> Some key GIS concept</h2>
+<div id="coordinate-reference-systems-and-projections." class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Coordinate reference systems and projections.</h3>
+<p>Geographical information is of course spatially explicit and so can be mapped onto the earth surface. This means that we work with coordinates.</p>
+<p>The following are two common types of coordinate systems used in a geographic information system (GIS):</p>
+<ol style="list-style-type: decimal">
+<li><p>A global or spherical coordinate system such as latitude-longitude. These are often referred to as geographic coordinate systems.</p></li>
+<li><p>Projected coordinate system such as universal transverse Mercator (UTM), the British National Grid, Albers Equal Area, Google mercator etc. There are a large number of other map projection models which all provide mechanisms to project maps of the earth’s spherical surface onto a two-dimensional Cartesian coordinate plane.</p></li>
+</ol>
+<p>A GIS can transform (project) spatial data from one CRS to another more or less seamlessly. However it is very important to know which CRS you are using and which CRS is used by the native data format. The issue can become complicated when working with data provided by researchers in more than one country, as each nation may use a different gridded system for projection. The datums used for the projections have also changed over time. To help enforce consistency the European Petroleum Survey Group (EPSG) catalogued all the known CRSs in use and provided them with a common code number for reference. The EPSG code is the simplest and most consistent way to refer to a CRS.</p>
+<p>In the UK there are three very commonly used EPSG codes.</p>
+<ol style="list-style-type: decimal">
+<li>EPSG 4326: This is the code for unprojected (i.e. Latitude and Longitude) geographical coordinates. It is universal and global in extent. This is the best CRS for raw data as all the others can be easily derived from it, no matter where you are.</li>
+<li>EPSG 27700: The British National grid. The default national system that respects distances and areas. This is the CRS for site mapping in the UK.</li>
+<li>EPSG 3857: Web mercator. The projection used by Google maps and many other online sources.</li>
+</ol>
+<p>So to summarise. All GIS can <strong>reproject</strong> data from latitude and longitude form into a projection for calculating distances and areas it is generally preferable to keep data that may be shared internationally in EPSG 4326. However when working with researchers in the UK EPSG 27700 is very commonly used as the standard format. EPSG 3857 is convenient for global visualisaion but the calculations made directly within this CRS are inaccurate.</p>
+</div>
+<div id="raster-vs-vector-data" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Raster vs vector data</h3>
+<p>There are two ways that geographical data can be represented. Most GIS projects include a mixture of them</p>
+<p>Raster layers are made up of pixels or cells. A satellite image or an aerial photo are examples of rasters. In these cases the coloured visual representation is made of three bands, red, blue and green which are blended together to form an image. Another typical example of a raster layer is a digital elevation model. In this case the cell values correspond to height above sea level, or some other reference point. The pixel size defines the resolution of a raster layer. The smaller the pixel the finer the resolution and level of detail.</p>
+</div>
+</div>
+<div id="making-your-own-maps" class="section level2">
+<h2><span class="header-section-number">1.4</span> Making your own maps</h2>
+<p>On screen digitising used to be the commonest use of GIS. Digitising involves drawing your own map, adding information, capturing and storing the results. This is the most obvious way to form an original map. Other methods involve geoprocessing or image classification. Digitising has become a slightly less important skill than it once was, due to the availability of online spatial data and web maps that already have the information needed. However there are still many uses for digitisation. In this case we will be using QGIS to produce a phase one map for Hengistbury head.</p>
+<div id="the-qgis-interface" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> The QGIS interface</h3>
+<p>The interface to QGIS can be customised by the user to show different elements in different regions of the screen. You can add or subtract toolbars, change the panels which are visible using the menus at the top and move things around in many different ways. The screenshot below shows a basic default layout.</p>
+<p>The concept of a “project” is an important element in all desktop GIS. A project file contains information regarding the CRS being used and the files that are loaded. Projects are used to restore the GIS to the state it was in when you were last using it. It is important to be aware that when you save a project you do not actually save the files themselves.</p>
+</div>
+<div id="qgis-gui" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> QGIS GUI</h3>
+<div class="figure">
+<img src="figs/small_qgis1.png" alt="QGIS interface" />
+<p class="caption">QGIS interface</p>
+</div>
+</div>
+<div id="adding-base-maps" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Adding base maps</h3>
+<p>A typical first step in any GIS project is to add some base maps.</p>
+<p>In QGIS 3.2 this is achieved by selecting from the XYZ tile item in the browser tab. This should be preloaded with a set of useful options.</p>
+<p>If your PC does not have basemaps preloaded, or if you are using your laptop you can load all the options by pasting this script into the python console (under the plugins menu).</p>
+<p><a href="https://raw.githubusercontent.com/klakar/QGIS_resources/master/collections/Geosupportsystem/python/qgis_basemaps.py" class="uri">https://raw.githubusercontent.com/klakar/QGIS_resources/master/collections/Geosupportsystem/python/qgis_basemaps.py</a></p>
+<p>Open the python console. copy the whole script into it, press run and wait for a few minutes for the installation to complete. This only needs to be done once.</p>
+</div>
+<div id="loading-a-base-map" class="section level3">
+<h3><span class="header-section-number">1.4.4</span> Loading a base map</h3>
+<div class="figure">
+<img src="figs/small_qgis2.png" />
+
+</div>
+<p>The base maps are typically streamed in the EPSG:3857 coordinate reference system, i.e the Google or Web Mercator. However data files in the UK are typically held in EPSG:277000 i.e. British National Grid. This could cause problems when working with the two data sources together. Fortunately QGIS 3.2 has very smooth “on the fly” reprojection that allows layers in two different CRSs to be lined up.</p>
+<p>To change the project CRS into EPSG:27700 for processsing and consitency click on the project properties icon. Find the British National grid CRS by searching for 277000. Apply this CRS to the project.</p>
+<div class="figure">
+<img src="figs/small_qgis3.png" />
+
+</div>
+<div id="exercise-1" class="section level4">
+<h4><span class="header-section-number">1.4.4.1</span> Exercise</h4>
+<p>Experiment with the base maps. Load several maps. Try reordering them in the layers panel and switching them on and off. Right clicking the name of the layer allows you to remove them.</p>
+</div>
+</div>
+<div id="saving-projects-and-files" class="section level3">
+<h3><span class="header-section-number">1.4.5</span> Saving projects and files</h3>
+<p>You can now start saving your project. Open a new folder somewhere on your profile and save a new project file with an appropriate name. It should be obvious how to do this from the files menu. You should always take into account that the project file itself is simply a text file with details of the loaded layers, the CRS being used, the area that is zoomed to, etc. So, you can’t just share a project file which has information about layers that are loaded and expect someone else to be able to open it unless you also share the files themselves.</p>
+</div>
+<div id="adding-a-wcs-raster-layer-from-the-local-geoserver" class="section level3">
+<h3><span class="header-section-number">1.4.6</span> Adding a WCS raster layer from the local Geoserver</h3>
+<p>A Geoserver is one of a set of tools that allows geographical information to be shared over a network or on the internet. Opening a geoserver connection allows access to geographical information held on a server. If institutions are holding confidential or valuable information then access will only be allowed on site and will require a log in. We will use some simple, non confidential layers in the current project.</p>
+<p>There are several different types of services available on a geoserver.</p>
+<ol style="list-style-type: decimal">
+<li>WMS: Web map service. Allows fast overlays of pictures of the data that can be included in web maps. This is useful for visualistion, but cannot be used for analytical purposes. This is similar to the base maps you have already loaded as you can see the layer but you can’t manipulate it.</li>
+<li>WFS: Web feature service. This allows vector layers to be loaded locally for desktop processing. The layers are usually then saved locally and used for further processing.</li>
+<li>WCS: Web coverage service: Similar to WFS, but for raster layers.</li>
+</ol>
+<p>As we are going to process data locally we will use the WCS and WFS services.</p>
+<p>Look for the WFS tab in the browser and click on add a service. The URLs you will need are the following</p>
+<p><a href="http://r.bournemouth.ac.uk:8083/bu/wfs" class="uri">http://r.bournemouth.ac.uk:8083/bu/wfs</a>?</p>
+<p>Or on campus</p>
+<p><a href="http://172.25.50.33:8083/bu/wfs" class="uri">http://172.25.50.33:8083/bu/wfs</a>?</p>
+<p>You can give the service any name that you want. There is no need for authentication.</p>
+<div class="figure">
+<img src="figs/small_qgis5.png" />
+
+</div>
+<p>Likewise open a WCS service in the same way using the same URL but with the final letters changed to wcs (i.e <a href="http://172.25.50.33:8083/bu/wcs" class="uri">http://172.25.50.33:8083/bu/wcs</a>?)</p>
+</div>
+</div>
+<div id="raster-terrain-data" class="section level2">
+<h2><span class="header-section-number">1.5</span> Raster terrain data</h2>
+<p>The WCS service links to Lidar derived raster layers held on the server. There are two layers for Hengistbury Head and for Arne. The digital surface model (DSM) represents the elevation of the top of the vegetation layer. The digital terrain model has values for the elevaltion of the ground. Both the layers are at 2m resolution. We will look at how these layers can be used in a later class. For the moment load the two layers into your Hengistbury project by clicking on them. You will then see the names added to the layers panel.</p>
+<p>The best way to get used to working with loaded layers in GIS is to experiment yourself. You will find that right clicking the layer brings up a menu that allows you to zoom to the layer extent, amongst other options. You could also try styling the layer to change its colours from the standard grey scale. We will look at these options in more detail later. For the moment, after experimenting zoom to the area that will form the focus of your study.</p>
+</div>
+<div id="vector-data-from-the-wfs-service" class="section level2">
+<h2><span class="header-section-number">1.6</span> Vector data from the WFS service</h2>
+<p>We will add two additional layers from the WFS. The first shows the boundaries of sites of special scientific interest as provided by Natural England. The second contains lines from the open street map layers. Although you can visualise open street map data as base layers, you can’t use the base leyers for any form of geoprocessing or analysis.</p>
+<p><strong>DO NOT ZOOM TO THE FULL EXTENT OF EITHER OF THESE LAYERS</strong> The layers held on the Geoserver are quite large. The natural england SSSI layer contains data for the whole of England Wales. You do not want to download all these data at this time.</p>
+</div>
+<div id="saving-layers-locally-for-processing-and-offline-use" class="section level2">
+<h2><span class="header-section-number">1.7</span> Saving layers locally for processing and offline use</h2>
+<p>In some situations it can be useful to work with data held on the server directly. However this may lead to modifications to shared data that other users will see. When a large data set has been partially loaded from the server using either WFS or WCS, accidentally zooming out of the study region will lead to the server downloading large amounts of data and rendering the results as a map. You may also wish to extract data from a network that is only available on campus in order to work with it at home. Working with local data is therefore the usual proctice for desktop GIS. So, after zooming to the area of interest make copies of all the four layers in your project folder. Give the layers informative names and make sure that you only save data that falls inside the study area. Once you have saved all four layers and loaded them into the canvas you should remove the WCS and WFS versions, as you no longer need them and they may slow down rendering and processing by reloading data from the network.</p>
+<div class="figure">
+<img src="figs/small_qgis6.png" />
+
+</div>
+<p>Make sure that you click to only save the map view extent. Repeat this for all four layers. Notice that by default you save vector layers as shapefiles. A shapefile is something of a misnomer as the shapefile format actually uses multiple files to describe the data. The files with a shp extension hold the geometry, those with dbf extensions hold the attributes and the .prj file contains the CRS (projection) information. If you pass a shapefile to another user you would usually zip all these elements up together. Shapefiles are a legacy format, as there are many better ways of holding vector data, but due to the dominance of Esri they have remain the default. When you save raster data the default format is a geotiff. These files can be opened in any GIS. When you have finished saving the four layers and removed the WCS and WFS connected layers your project may look rather like the screenshot below. Note that I have used very simple names for the files and they are all saved to a single folder along with the project file. The project can now be recreated offline.</p>
+<div class="figure">
+<img src="figs/small_qgis7.png" />
+
+</div>
+<div id="exercise-2" class="section level4">
+<h4><span class="header-section-number">1.7.0.1</span> Exercise</h4>
+<p>Now that you have saved all the layers locally you may want to try changing their styles and experimenting with some other options in GIS. There is no harm in trial and error. The underlying data won’t be affected. If you find colour schemes that you like they will be saved when you save the project. Remember that saving a project <strong>DOES NOT</strong> save data. It simply saves the state of QGIS when the appropriate data are loaded.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="on-screen-digitising.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Quantitative_and_Spatial.pdf", "Quantitative_and_Spatial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
