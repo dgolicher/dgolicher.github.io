@@ -1,0 +1,8 @@
+---
+title: "Index"
+author: "Duncan Golicher"
+date: "6/28/2020"
+output: html_document
+---
+
+https://dgolicher.github.io/aqm/introduction.htm
