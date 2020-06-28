@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1593332770450.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2885320575",
+    "id" : "62C22D19",
+    "lastKnownWriteTime" : 1593333014,
+    "last_content_update" : 1593333014275,
+    "path" : "~/rstudio/dgolicher.github.io/_posts/2020-6-6-Bayes test.Rmd",
+    "project_path" : "_posts/2020-6-6-Bayes test.Rmd",
+    "properties" : {
+        "cursorPosition" : "1,18",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

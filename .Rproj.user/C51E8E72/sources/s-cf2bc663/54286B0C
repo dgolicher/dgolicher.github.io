@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1593331864587.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "54286B0C",
+    "lastKnownWriteTime" : 1593332176,
+    "last_content_update" : 1593332176409,
+    "path" : "~/rstudio/dgolicher.github.io/_posts/2020-6-6-test.Rmd",
+    "project_path" : "_posts/2020-6-6-test.Rmd",
+    "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
