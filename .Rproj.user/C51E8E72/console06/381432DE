@@ -274,3 +274,18 @@ To https://github.com/dgolicher/dgolicher.github.io.git
 Branch master set up to track remote branch master from origin.
 ]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ echo "Hello World" > index.html
 ]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ echo "Hello World" > index.html[6Pgit push -u origin master[4Pcommit -m "first"add .[K
+]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ git add .echo "Hello World" > index.html[6Pgit push -u origin master[4Pcommit -m "first"
+[master 8a4163f] first
+ 2 files changed, 20 insertions(+), 181 deletions(-)
+ rewrite index.html (100%)
+]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ git commit -m "first"add .[Kecho "Hello World" > index.html[6Pgit push -u origin master
+Counting objects: 7, done.
+Delta compression using up to 16 threads.
+Compressing objects:  16% (1/6)   Compressing objects:  33% (2/6)   Compressing objects:  50% (3/6)   Compressing objects:  66% (4/6)   Compressing objects:  83% (5/6)   Compressing objects: 100% (6/6)   Compressing objects: 100% (6/6), done.
+Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 1.04 KiB | 0 bytes/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/dgolicher/dgolicher.github.io.git
+   0e4f3c5..8a4163f  master -> master
+Branch master set up to track remote branch master from origin.
+]0;/home/rstudio/rstudio/dgolicher.github.iorstudio@ab10bc041bf7:~/rstudio/dgolicher.github.io$ git push -u origin master[4Pcommit -m "first"add .[K
