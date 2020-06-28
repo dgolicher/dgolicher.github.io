@@ -1,0 +1,27 @@
+---
+title: "Bayes test"
+author: "Duncan Golicher"
+date: "6/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(bnlearn)
+
+data(learning.test)
+d<-learning.test
+res = gs(learning.test)
+
+plot(res)
+
+## highlight node B and related arcs.
+plot(res, highlight = "B")
+## highlight B and its Markov blanket.
+plot(res, highlight = c("B", mb(res, "B")))
+```
+
