@@ -1,8 +1,6 @@
 ---
 title: "Bayes test"
-author: "Duncan Golicher"
-date: "6/22/2020"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
